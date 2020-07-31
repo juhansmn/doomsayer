@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0ACE7EE8249F693500E94ACF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EE7249F693500E94ACF /* AppDelegate.swift */; };
+		0ACE7EEA249F693500E94ACF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */; };
+		0ACE7EEC249F693500E94ACF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EEB249F693500E94ACF /* ViewController.swift */; };
+		0ACE7EEF249F693500E94ACF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE7EED249F693500E94ACF /* Main.storyboard */; };
+		0ACE7EF1249F693700E94ACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE7EF0249F693700E94ACF /* Assets.xcassets */; };
+		0ACE7EF4249F693700E94ACF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ACE7EF2249F693700E94ACF /* LaunchScreen.storyboard */; };
+		0ACE7EFF249F693700E94ACF /* client_to_python_socketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EFE249F693700E94ACF /* client_to_python_socketTests.swift */; };
+		0ACE7F0A249F693700E94ACF /* client_to_python_socketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7F09249F693700E94ACF /* client_to_python_socketUITests.swift */; };
+		0ACE7F18249F697C00E94ACF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7F17249F697C00E94ACF /* Socket.swift */; };
+		0AFAF7A624D3420100643FBC /* SituationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFAF7A524D3420100643FBC /* SituationViewController.swift */; };
+		0AFAF7A824D3489D00643FBC /* SituationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFAF7A724D3489D00643FBC /* SituationScene.swift */; };
+		0AFAF7AA24D35DB200643FBC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFAF7A924D35DB200643FBC /* Client.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0ACE7EFB249F693700E94ACF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0ACE7EDC249F693500E94ACF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0ACE7EE3249F693500E94ACF;
+			remoteInfo = "client-to-python-socket";
+		};
+		0ACE7F06249F693700E94ACF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0ACE7EDC249F693500E94ACF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0ACE7EE3249F693500E94ACF;
+			remoteInfo = "client-to-python-socket";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0ACE7EE4249F693500E94ACF /* client-to-python-socket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client-to-python-socket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ACE7EE7249F693500E94ACF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0ACE7EEB249F693500E94ACF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0ACE7EEE249F693500E94ACF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0ACE7EF0249F693700E94ACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0ACE7EF3249F693700E94ACF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0ACE7EF5249F693700E94ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ACE7EFA249F693700E94ACF /* client-to-python-socketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "client-to-python-socketTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ACE7EFE249F693700E94ACF /* client_to_python_socketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = client_to_python_socketTests.swift; sourceTree = "<group>"; };
+		0ACE7F00249F693700E94ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ACE7F05249F693700E94ACF /* client-to-python-socketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "client-to-python-socketUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ACE7F09249F693700E94ACF /* client_to_python_socketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = client_to_python_socketUITests.swift; sourceTree = "<group>"; };
+		0ACE7F0B249F693700E94ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ACE7F17249F697C00E94ACF /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		0AFAF7A524D3420100643FBC /* SituationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SituationViewController.swift; sourceTree = "<group>"; };
+		0AFAF7A724D3489D00643FBC /* SituationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SituationScene.swift; sourceTree = "<group>"; };
+		0AFAF7A924D35DB200643FBC /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0ACE7EE1249F693500E94ACF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ACE7EF7249F693700E94ACF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ACE7F02249F693700E94ACF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0ACE7EDB249F693500E94ACF = {
+			isa = PBXGroup;
+			children = (
+				0ACE7EE6249F693500E94ACF /* client-to-python-socket */,
+				0ACE7EFD249F693700E94ACF /* client-to-python-socketTests */,
+				0ACE7F08249F693700E94ACF /* client-to-python-socketUITests */,
+				0ACE7EE5249F693500E94ACF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0ACE7EE5249F693500E94ACF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0ACE7EE4249F693500E94ACF /* client-to-python-socket.app */,
+				0ACE7EFA249F693700E94ACF /* client-to-python-socketTests.xctest */,
+				0ACE7F05249F693700E94ACF /* client-to-python-socketUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0ACE7EE6249F693500E94ACF /* client-to-python-socket */ = {
+			isa = PBXGroup;
+			children = (
+				0ACE7EE7249F693500E94ACF /* AppDelegate.swift */,
+				0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */,
+				0ACE7EEB249F693500E94ACF /* ViewController.swift */,
+				0AFAF7A524D3420100643FBC /* SituationViewController.swift */,
+				0AFAF7A724D3489D00643FBC /* SituationScene.swift */,
+				0ACE7F17249F697C00E94ACF /* Socket.swift */,
+				0AFAF7A924D35DB200643FBC /* Client.swift */,
+				0ACE7EED249F693500E94ACF /* Main.storyboard */,
+				0ACE7EF0249F693700E94ACF /* Assets.xcassets */,
+				0ACE7EF2249F693700E94ACF /* LaunchScreen.storyboard */,
+				0ACE7EF5249F693700E94ACF /* Info.plist */,
+			);
+			path = "client-to-python-socket";
+			sourceTree = "<group>";
+		};
+		0ACE7EFD249F693700E94ACF /* client-to-python-socketTests */ = {
+			isa = PBXGroup;
+			children = (
+				0ACE7EFE249F693700E94ACF /* client_to_python_socketTests.swift */,
+				0ACE7F00249F693700E94ACF /* Info.plist */,
+			);
+			path = "client-to-python-socketTests";
+			sourceTree = "<group>";
+		};
+		0ACE7F08249F693700E94ACF /* client-to-python-socketUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0ACE7F09249F693700E94ACF /* client_to_python_socketUITests.swift */,
+				0ACE7F0B249F693700E94ACF /* Info.plist */,
+			);
+			path = "client-to-python-socketUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0ACE7EE3249F693500E94ACF /* client-to-python-socket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0ACE7F0E249F693700E94ACF /* Build configuration list for PBXNativeTarget "client-to-python-socket" */;
+			buildPhases = (
+				0ACE7EE0249F693500E94ACF /* Sources */,
+				0ACE7EE1249F693500E94ACF /* Frameworks */,
+				0ACE7EE2249F693500E94ACF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "client-to-python-socket";
+			productName = "client-to-python-socket";
+			productReference = 0ACE7EE4249F693500E94ACF /* client-to-python-socket.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0ACE7EF9249F693700E94ACF /* client-to-python-socketTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0ACE7F11249F693700E94ACF /* Build configuration list for PBXNativeTarget "client-to-python-socketTests" */;
+			buildPhases = (
+				0ACE7EF6249F693700E94ACF /* Sources */,
+				0ACE7EF7249F693700E94ACF /* Frameworks */,
+				0ACE7EF8249F693700E94ACF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0ACE7EFC249F693700E94ACF /* PBXTargetDependency */,
+			);
+			name = "client-to-python-socketTests";
+			productName = "client-to-python-socketTests";
+			productReference = 0ACE7EFA249F693700E94ACF /* client-to-python-socketTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0ACE7F04249F693700E94ACF /* client-to-python-socketUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0ACE7F14249F693700E94ACF /* Build configuration list for PBXNativeTarget "client-to-python-socketUITests" */;
+			buildPhases = (
+				0ACE7F01249F693700E94ACF /* Sources */,
+				0ACE7F02249F693700E94ACF /* Frameworks */,
+				0ACE7F03249F693700E94ACF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0ACE7F07249F693700E94ACF /* PBXTargetDependency */,
+			);
+			name = "client-to-python-socketUITests";
+			productName = "client-to-python-socketUITests";
+			productReference = 0ACE7F05249F693700E94ACF /* client-to-python-socketUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0ACE7EDC249F693500E94ACF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Juan Suman";
+				TargetAttributes = {
+					0ACE7EE3249F693500E94ACF = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					0ACE7EF9249F693700E94ACF = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 0ACE7EE3249F693500E94ACF;
+					};
+					0ACE7F04249F693700E94ACF = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 0ACE7EE3249F693500E94ACF;
+					};
+				};
+			};
+			buildConfigurationList = 0ACE7EDF249F693500E94ACF /* Build configuration list for PBXProject "client-to-python-socket" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0ACE7EDB249F693500E94ACF;
+			productRefGroup = 0ACE7EE5249F693500E94ACF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0ACE7EE3249F693500E94ACF /* client-to-python-socket */,
+				0ACE7EF9249F693700E94ACF /* client-to-python-socketTests */,
+				0ACE7F04249F693700E94ACF /* client-to-python-socketUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0ACE7EE2249F693500E94ACF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ACE7EF4249F693700E94ACF /* LaunchScreen.storyboard in Resources */,
+				0ACE7EF1249F693700E94ACF /* Assets.xcassets in Resources */,
+				0ACE7EEF249F693500E94ACF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ACE7EF8249F693700E94ACF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ACE7F03249F693700E94ACF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0ACE7EE0249F693500E94ACF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AFAF7A624D3420100643FBC /* SituationViewController.swift in Sources */,
+				0AFAF7AA24D35DB200643FBC /* Client.swift in Sources */,
+				0ACE7EEC249F693500E94ACF /* ViewController.swift in Sources */,
+				0ACE7EE8249F693500E94ACF /* AppDelegate.swift in Sources */,
+				0ACE7F18249F697C00E94ACF /* Socket.swift in Sources */,
+				0ACE7EEA249F693500E94ACF /* SceneDelegate.swift in Sources */,
+				0AFAF7A824D3489D00643FBC /* SituationScene.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ACE7EF6249F693700E94ACF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ACE7EFF249F693700E94ACF /* client_to_python_socketTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ACE7F01249F693700E94ACF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ACE7F0A249F693700E94ACF /* client_to_python_socketUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0ACE7EFC249F693700E94ACF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0ACE7EE3249F693500E94ACF /* client-to-python-socket */;
+			targetProxy = 0ACE7EFB249F693700E94ACF /* PBXContainerItemProxy */;
+		};
+		0ACE7F07249F693700E94ACF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0ACE7EE3249F693500E94ACF /* client-to-python-socket */;
+			targetProxy = 0ACE7F06249F693700E94ACF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0ACE7EED249F693500E94ACF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0ACE7EEE249F693500E94ACF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0ACE7EF2249F693700E94ACF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0ACE7EF3249F693700E94ACF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0ACE7F0C249F693700E94ACF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0ACE7F0D249F693700E94ACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0ACE7F0F249F693700E94ACF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JG99T8FZ63;
+				INFOPLIST_FILE = "client-to-python-socket/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "j.client-to-python-socket";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0ACE7F10249F693700E94ACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JG99T8FZ63;
+				INFOPLIST_FILE = "client-to-python-socket/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "j.client-to-python-socket";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0ACE7F12249F693700E94ACF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JG99T8FZ63;
+				INFOPLIST_FILE = "client-to-python-socketTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "j.client-to-python-socketTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/client-to-python-socket.app/client-to-python-socket";
+			};
+			name = Debug;
+		};
+		0ACE7F13249F693700E94ACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JG99T8FZ63;
+				INFOPLIST_FILE = "client-to-python-socketTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "j.client-to-python-socketTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/client-to-python-socket.app/client-to-python-socket";
+			};
+			name = Release;
+		};
+		0ACE7F15249F693700E94ACF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JG99T8FZ63;
+				INFOPLIST_FILE = "client-to-python-socketUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "j.client-to-python-socketUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "client-to-python-socket";
+			};
+			name = Debug;
+		};
+		0ACE7F16249F693700E94ACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JG99T8FZ63;
+				INFOPLIST_FILE = "client-to-python-socketUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "j.client-to-python-socketUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "client-to-python-socket";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0ACE7EDF249F693500E94ACF /* Build configuration list for PBXProject "client-to-python-socket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ACE7F0C249F693700E94ACF /* Debug */,
+				0ACE7F0D249F693700E94ACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0ACE7F0E249F693700E94ACF /* Build configuration list for PBXNativeTarget "client-to-python-socket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ACE7F0F249F693700E94ACF /* Debug */,
+				0ACE7F10249F693700E94ACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0ACE7F11249F693700E94ACF /* Build configuration list for PBXNativeTarget "client-to-python-socketTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ACE7F12249F693700E94ACF /* Debug */,
+				0ACE7F13249F693700E94ACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0ACE7F14249F693700E94ACF /* Build configuration list for PBXNativeTarget "client-to-python-socketUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ACE7F15249F693700E94ACF /* Debug */,
+				0ACE7F16249F693700E94ACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0ACE7EDC249F693500E94ACF /* Project object */;
+}
