@@ -1,0 +1,33 @@
+#fileJogador#
+**Jogador**:
+nome
+retrato
+objetivo pessoal
+dinheiro
+hp
+opção escolhida na situação atual
+
+---
+#fileCaso#
+
+**Caso**:
+nome
+imagem
+possíveis situações
+opções escolhidas
+ápices (relativo às opções escolhidas. Do tipo Tela, pai de Situação e Caso)
+
+mostrarSituação()
+       depende das opções escolhidas anteriormente
+
+---
+#fileSituação:#
+
+**Situação**:
+imagem (vem de Tela)
+descrição
+opções
+
+**Opção**:
+situação
+descrição 
