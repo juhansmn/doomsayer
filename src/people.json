@@ -1,0 +1,14 @@
+{
+	"people": [
+        {
+        	"name": "John",
+          "last_name": "Smith",
+          "is_a_beater": true
+        },
+        {
+            "name": "Gary",
+            "last_name": "Oldman",
+            "is_a_beater": true
+        }
+    ]
+}
