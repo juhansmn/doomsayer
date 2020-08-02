@@ -17,10 +17,10 @@ class ViewController: UIViewController {
         //clientSocket.delegate = self
         clientSocket.setupNetwork()
         
-        let message = try! JSONEncoder().encode(Situation(player_id: 20000, selected_option: 01))
-        let messageLength = String(bytes: message, encoding: .utf8)?.count
+        //let message = try! JSONEncoder().encode(Situation(player_id: 20000, selected_option: 01))
+        //let messageLength = String(bytes: message, encoding: .utf8)?.count
         
-        clientSocket.sendToServer(message: message, message_length: messageLength ?? 0)
+        //clientSocket.sendToServer(message: message, message_length: messageLength ?? 0)
     }
     
     @IBAction func buttonSair(_ sender: Any) {

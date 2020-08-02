@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0A1E7324D64B86001BA5CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E7224D64B86001BA5CE /* HomeViewController.swift */; };
+		0A0A1E7524D64B9B001BA5CE /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E7424D64B9B001BA5CE /* LoadingViewController.swift */; };
+		0A0A1E7724D64BA8001BA5CE /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E7624D64BA8001BA5CE /* PlayersViewController.swift */; };
+		0A0A1E7924D64BC2001BA5CE /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E7824D64BC2001BA5CE /* StoryViewController.swift */; };
 		0ACE7EE8249F693500E94ACF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EE7249F693500E94ACF /* AppDelegate.swift */; };
 		0ACE7EEA249F693500E94ACF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */; };
 		0ACE7EEC249F693500E94ACF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EEB249F693500E94ACF /* ViewController.swift */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0A1E7224D64B86001BA5CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0A0A1E7424D64B9B001BA5CE /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		0A0A1E7624D64BA8001BA5CE /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
+		0A0A1E7824D64BC2001BA5CE /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		0ACE7EE4249F693500E94ACF /* client-to-python-socket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client-to-python-socket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ACE7EE7249F693500E94ACF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +119,10 @@
 				0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */,
 				0ACE7EEB249F693500E94ACF /* ViewController.swift */,
 				0AFAF7A524D3420100643FBC /* SituationViewController.swift */,
+				0A0A1E7224D64B86001BA5CE /* HomeViewController.swift */,
+				0A0A1E7424D64B9B001BA5CE /* LoadingViewController.swift */,
+				0A0A1E7824D64BC2001BA5CE /* StoryViewController.swift */,
+				0A0A1E7624D64BA8001BA5CE /* PlayersViewController.swift */,
 				0AFAF7A724D3489D00643FBC /* SituationScene.swift */,
 				0ACE7F17249F697C00E94ACF /* Socket.swift */,
 				0AFAF7A924D35DB200643FBC /* Client.swift */,
@@ -274,8 +286,12 @@
 				0AFAF7A624D3420100643FBC /* SituationViewController.swift in Sources */,
 				0AFAF7AA24D35DB200643FBC /* Client.swift in Sources */,
 				0ACE7EEC249F693500E94ACF /* ViewController.swift in Sources */,
+				0A0A1E7724D64BA8001BA5CE /* PlayersViewController.swift in Sources */,
+				0A0A1E7324D64B86001BA5CE /* HomeViewController.swift in Sources */,
 				0ACE7EE8249F693500E94ACF /* AppDelegate.swift in Sources */,
+				0A0A1E7524D64B9B001BA5CE /* LoadingViewController.swift in Sources */,
 				0ACE7F18249F697C00E94ACF /* Socket.swift in Sources */,
+				0A0A1E7924D64BC2001BA5CE /* StoryViewController.swift in Sources */,
 				0ACE7EEA249F693500E94ACF /* SceneDelegate.swift in Sources */,
 				0AFAF7A824D3489D00643FBC /* SituationScene.swift in Sources */,
 			);
