@@ -15,8 +15,6 @@ class SituationScene: SKScene{
     let optionsButtons = [SKSpriteNode]()
     let confirmationButton = SKSpriteNode()
     
-    let client = Client()
-    
     var situationID = 0
     
     override func didMove(to view: SKView) {
@@ -52,7 +50,7 @@ class SituationScene: SKScene{
     
     //Atualiza imagem superior
     func updateTopImage(){
-        let imageName = client.returnTopImageName(id: situationID)
+        let imageName = Client.shared.returnTopImageName(situationId: situationID)
         topImage.texture = SKTexture(imageNamed: imageName)
     }
     
@@ -63,7 +61,7 @@ class SituationScene: SKScene{
     }
     
     func updateDescription(){
-        let text = client.returnDescription(id: situationID)
+        let text = Client.shared.returnSituationDescription(situationId: situationID)
         situationDescription.text = ""
     }
     
@@ -82,7 +80,7 @@ class SituationScene: SKScene{
     }
     
     func updateOptions(){
-        let buttons = client.returnOptionsNames(id: situationID)
+        let buttons = Client.shared.returnOptionsNames(situationId: situationID)
         
         for (i, option) in optionsButtons.enumerated(){
             option.texture = SKTexture(imageNamed: buttons[i])

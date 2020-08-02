@@ -10,7 +10,7 @@ import Foundation
 
 struct Situation: Codable {
     var player_id: Int
-    var selected_option: Int
+    var selected_option: String
 }
 
 struct Case: Codable {
@@ -20,7 +20,13 @@ struct Case: Codable {
 }
 
 class Client {
+    //Singleton
+    static let shared = Client()
+    
     let clientSocket = Socket()
+    
+    var serverMessage: [String:Any]?
+    
     var playerID: Int?
     var playerName: String?
     var RC: Int?
@@ -28,51 +34,57 @@ class Client {
     var selectedCase: Int?
     var topImageName: String?
     var situationDescription: String?
-    var optionsNames: [String]?
+    var optionsButtonsNames: [String]?
+    var serverStatus: Int?
+    var serverStatusMessage: String?
     
     func connectToServer(){
-        clientSocket.delegate = self
+        clientSocket.delegate = Client.shared
         clientSocket.setupNetwork()
     }
     
-    func returnTopImageName(id: Int) -> String{
+    func returnTopImageName(situationId: Int) -> String{
         return "A"
     }
     
-    func returnOptionsNames(id: Int) -> [String]{
-        return ["A", "B"]
+    func returnOptionsNames(situationId: Int) -> [String]{
+        return ["", "B"]
     }
     
-    func returnDescription(id: Int) -> String{
-        return "A"
+    func returnSituationDescription(situationId: Int) -> String{
+        return "B"
+    }
+    
+    func returnServerStatus() -> String{
+        return "B"
     }
     
     func updateAttributes(){
         //Recebe o JSON
         //Separa o JSON
         //Atualiza os atributos com cada posição do JSON
+        
+        print("AAAAA")
+        
+        Client.shared.RC = serverMessage?["player_id"] as? Int
+        //Client.shared.selectedOption = serverMessage?["player_id"] as! Int
+        //Client.shared.selectedCase = serverMessage?["player_id"] as? Int
+        Client.shared.topImageName = (serverMessage?["selected_option"]) as? String
+        //Client.shared.situationDescription = serverMessage?["player_id"] as! String
+        //Client.shared.optionsButtonsNames = serverMessage?["player_id"] as! [String]
+        //Client.shared.serverStatus = serverMessage?["player_id"] as! Int
+        
+        
+        print(serverMessage!["player_id"], Client.shared.RC)
     }
-    
-    /*
-     id do usuario
-     nome
-     rc
-     players_options
-     caso_selecionado
-     imagem
-     botoes
-     descricao da situacao
-     */
-    
-    //retorna cada dado
 }
 
 extension Client: ClientDelegate{
     func receivedMessage(message: String) {
         do{
-            let jsonArray = try JSONSerialization.jsonObject(with: message.data(using: .utf8)!, options: [])
-            let jsonData = try JSONSerialization.data(withJSONObject: jsonArray, options: .fragmentsAllowed)
-            print(jsonData)
+            serverMessage = try JSONSerialization.jsonObject(with: message.data(using: .utf8)!, options: []) as? [String:Any]
+            //let jsonData = try JSONSerialization.data(withJSONObject: jsonArray, options: .fragmentsAllowed)
+            updateAttributes()
         }
         catch{
             print(error.localizedDescription)

@@ -13,7 +13,15 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        var serverStatus = Client.shared.serverStatus
+        
+        while serverStatus == 0{
+            serverStatus = Client.shared.serverStatus
+            
+            if serverStatus == 1{
+                performSegue(withIdentifier: "segueToStory", sender: nil)
+            }
+        }
     }
     
 
