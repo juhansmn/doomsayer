@@ -11,6 +11,13 @@
 		0A0A1E7524D64B9B001BA5CE /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E7424D64B9B001BA5CE /* LoadingViewController.swift */; };
 		0A0A1E7724D64BA8001BA5CE /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E7624D64BA8001BA5CE /* PlayersViewController.swift */; };
 		0A0A1E7924D64BC2001BA5CE /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E7824D64BC2001BA5CE /* StoryViewController.swift */; };
+		0A0A1E7B24D65534001BA5CE /* Cases.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0A1E7A24D65534001BA5CE /* Cases.storyboard */; };
+		0A0A1E7D24D65549001BA5CE /* Situations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0A1E7C24D65549001BA5CE /* Situations.storyboard */; };
+		0A0A1E7F24D65B00001BA5CE /* LoadingCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E7E24D65B00001BA5CE /* LoadingCaseViewController.swift */; };
+		0A0A1E8124D65B1B001BA5CE /* CasesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E8024D65B1B001BA5CE /* CasesListViewController.swift */; };
+		0A0A1E8324D65B2F001BA5CE /* CasesStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E8224D65B2F001BA5CE /* CasesStoryViewController.swift */; };
+		0A0A1E8524D65BC7001BA5CE /* EndingCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E8424D65BC7001BA5CE /* EndingCaseViewController.swift */; };
+		0A0A1E8724D65BE4001BA5CE /* IntroSituationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E8624D65BE4001BA5CE /* IntroSituationViewController.swift */; };
 		0ACE7EE8249F693500E94ACF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EE7249F693500E94ACF /* AppDelegate.swift */; };
 		0ACE7EEA249F693500E94ACF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */; };
 		0ACE7EEC249F693500E94ACF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EEB249F693500E94ACF /* ViewController.swift */; };
@@ -47,6 +54,13 @@
 		0A0A1E7424D64B9B001BA5CE /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		0A0A1E7624D64BA8001BA5CE /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		0A0A1E7824D64BC2001BA5CE /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		0A0A1E7A24D65534001BA5CE /* Cases.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cases.storyboard; sourceTree = "<group>"; };
+		0A0A1E7C24D65549001BA5CE /* Situations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Situations.storyboard; sourceTree = "<group>"; };
+		0A0A1E7E24D65B00001BA5CE /* LoadingCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCaseViewController.swift; sourceTree = "<group>"; };
+		0A0A1E8024D65B1B001BA5CE /* CasesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesListViewController.swift; sourceTree = "<group>"; };
+		0A0A1E8224D65B2F001BA5CE /* CasesStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesStoryViewController.swift; sourceTree = "<group>"; };
+		0A0A1E8424D65BC7001BA5CE /* EndingCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingCaseViewController.swift; sourceTree = "<group>"; };
+		0A0A1E8624D65BE4001BA5CE /* IntroSituationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSituationViewController.swift; sourceTree = "<group>"; };
 		0ACE7EE4249F693500E94ACF /* client-to-python-socket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client-to-python-socket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ACE7EE7249F693500E94ACF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,15 +132,22 @@
 				0ACE7EE7249F693500E94ACF /* AppDelegate.swift */,
 				0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */,
 				0ACE7EEB249F693500E94ACF /* ViewController.swift */,
-				0AFAF7A524D3420100643FBC /* SituationViewController.swift */,
+				0ACE7F17249F697C00E94ACF /* Socket.swift */,
+				0AFAF7A924D35DB200643FBC /* Client.swift */,
+				0ACE7EED249F693500E94ACF /* Main.storyboard */,
 				0A0A1E7224D64B86001BA5CE /* HomeViewController.swift */,
 				0A0A1E7424D64B9B001BA5CE /* LoadingViewController.swift */,
 				0A0A1E7824D64BC2001BA5CE /* StoryViewController.swift */,
 				0A0A1E7624D64BA8001BA5CE /* PlayersViewController.swift */,
+				0A0A1E7A24D65534001BA5CE /* Cases.storyboard */,
+				0A0A1E8224D65B2F001BA5CE /* CasesStoryViewController.swift */,
+				0A0A1E8024D65B1B001BA5CE /* CasesListViewController.swift */,
+				0A0A1E7E24D65B00001BA5CE /* LoadingCaseViewController.swift */,
+				0A0A1E7C24D65549001BA5CE /* Situations.storyboard */,
+				0A0A1E8624D65BE4001BA5CE /* IntroSituationViewController.swift */,
+				0AFAF7A524D3420100643FBC /* SituationViewController.swift */,
 				0AFAF7A724D3489D00643FBC /* SituationScene.swift */,
-				0ACE7F17249F697C00E94ACF /* Socket.swift */,
-				0AFAF7A924D35DB200643FBC /* Client.swift */,
-				0ACE7EED249F693500E94ACF /* Main.storyboard */,
+				0A0A1E8424D65BC7001BA5CE /* EndingCaseViewController.swift */,
 				0ACE7EF0249F693700E94ACF /* Assets.xcassets */,
 				0ACE7EF2249F693700E94ACF /* LaunchScreen.storyboard */,
 				0ACE7EF5249F693700E94ACF /* Info.plist */,
@@ -258,6 +279,8 @@
 			files = (
 				0ACE7EF4249F693700E94ACF /* LaunchScreen.storyboard in Resources */,
 				0ACE7EF1249F693700E94ACF /* Assets.xcassets in Resources */,
+				0A0A1E7D24D65549001BA5CE /* Situations.storyboard in Resources */,
+				0A0A1E7B24D65534001BA5CE /* Cases.storyboard in Resources */,
 				0ACE7EEF249F693500E94ACF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,15 +308,20 @@
 			files = (
 				0AFAF7A624D3420100643FBC /* SituationViewController.swift in Sources */,
 				0AFAF7AA24D35DB200643FBC /* Client.swift in Sources */,
+				0A0A1E8324D65B2F001BA5CE /* CasesStoryViewController.swift in Sources */,
 				0ACE7EEC249F693500E94ACF /* ViewController.swift in Sources */,
 				0A0A1E7724D64BA8001BA5CE /* PlayersViewController.swift in Sources */,
 				0A0A1E7324D64B86001BA5CE /* HomeViewController.swift in Sources */,
 				0ACE7EE8249F693500E94ACF /* AppDelegate.swift in Sources */,
 				0A0A1E7524D64B9B001BA5CE /* LoadingViewController.swift in Sources */,
+				0A0A1E8724D65BE4001BA5CE /* IntroSituationViewController.swift in Sources */,
+				0A0A1E8124D65B1B001BA5CE /* CasesListViewController.swift in Sources */,
 				0ACE7F18249F697C00E94ACF /* Socket.swift in Sources */,
+				0A0A1E8524D65BC7001BA5CE /* EndingCaseViewController.swift in Sources */,
 				0A0A1E7924D64BC2001BA5CE /* StoryViewController.swift in Sources */,
 				0ACE7EEA249F693500E94ACF /* SceneDelegate.swift in Sources */,
 				0AFAF7A824D3489D00643FBC /* SituationScene.swift in Sources */,
+				0A0A1E7F24D65B00001BA5CE /* LoadingCaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

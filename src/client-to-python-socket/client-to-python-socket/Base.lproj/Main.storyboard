@@ -15,10 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVV-KQ-Fy2">
-                                <rect key="frame" x="184" y="518" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVV-KQ-Fy2">
+                                <rect key="frame" x="95" y="499" width="224" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button" image="nselecionado-base"/>
                                 <connections>
                                     <action selector="buttonSair:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ihq-DB-PIw"/>
                                 </connections>
@@ -120,4 +120,7 @@
             <point key="canvasLocation" x="2822" y="94"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nselecionado-base" width="170" height="68"/>
+    </resources>
 </document>
