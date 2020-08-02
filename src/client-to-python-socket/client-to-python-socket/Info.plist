@@ -55,8 +55,8 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SHPinscher-Regular.otf</string>
-		<string>ArgentPixelCF-Regular.otf</string>
+		<string>SHPinscher-Regular.ttf</string>
+		<string>ArgentPixelCF-Regular.ttf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

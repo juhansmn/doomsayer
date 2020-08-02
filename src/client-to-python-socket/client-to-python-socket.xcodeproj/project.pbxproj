@@ -18,7 +18,8 @@
 		0A0A1E8324D65B2F001BA5CE /* CasesStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E8224D65B2F001BA5CE /* CasesStoryViewController.swift */; };
 		0A0A1E8524D65BC7001BA5CE /* EndingCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E8424D65BC7001BA5CE /* EndingCaseViewController.swift */; };
 		0A0A1E8724D65BE4001BA5CE /* IntroSituationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0A1E8624D65BE4001BA5CE /* IntroSituationViewController.swift */; };
-		0A0A1E8B24D664A8001BA5CE /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 0A0A1E8A24D664A8001BA5CE /* fonts */; };
+		0A0A1E9524D6B41F001BA5CE /* ArgentPixelCF-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A0A1E9224D6B40A001BA5CE /* ArgentPixelCF-Regular.ttf */; };
+		0A0A1E9624D6B422001BA5CE /* SHPinscher-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A0A1E9324D6B40A001BA5CE /* SHPinscher-Regular.ttf */; };
 		0ACE7EE8249F693500E94ACF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EE7249F693500E94ACF /* AppDelegate.swift */; };
 		0ACE7EEA249F693500E94ACF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */; };
 		0ACE7EEC249F693500E94ACF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7EEB249F693500E94ACF /* ViewController.swift */; };
@@ -62,7 +63,8 @@
 		0A0A1E8224D65B2F001BA5CE /* CasesStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesStoryViewController.swift; sourceTree = "<group>"; };
 		0A0A1E8424D65BC7001BA5CE /* EndingCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingCaseViewController.swift; sourceTree = "<group>"; };
 		0A0A1E8624D65BE4001BA5CE /* IntroSituationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSituationViewController.swift; sourceTree = "<group>"; };
-		0A0A1E8A24D664A8001BA5CE /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../../res/fonts; sourceTree = "<group>"; };
+		0A0A1E9224D6B40A001BA5CE /* ArgentPixelCF-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArgentPixelCF-Regular.ttf"; sourceTree = "<group>"; };
+		0A0A1E9324D6B40A001BA5CE /* SHPinscher-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SHPinscher-Regular.ttf"; sourceTree = "<group>"; };
 		0ACE7EE4249F693500E94ACF /* client-to-python-socket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client-to-python-socket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ACE7EE7249F693500E94ACF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,10 +110,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0A1E9424D6B411001BA5CE /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0A0A1E9224D6B40A001BA5CE /* ArgentPixelCF-Regular.ttf */,
+				0A0A1E9324D6B40A001BA5CE /* SHPinscher-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		0ACE7EDB249F693500E94ACF = {
 			isa = PBXGroup;
 			children = (
-				0A0A1E8A24D664A8001BA5CE /* fonts */,
 				0ACE7EE6249F693500E94ACF /* client-to-python-socket */,
 				0ACE7EFD249F693700E94ACF /* client-to-python-socketTests */,
 				0ACE7F08249F693700E94ACF /* client-to-python-socketUITests */,
@@ -151,6 +161,7 @@
 				0AFAF7A524D3420100643FBC /* SituationViewController.swift */,
 				0AFAF7A724D3489D00643FBC /* SituationScene.swift */,
 				0A0A1E8424D65BC7001BA5CE /* EndingCaseViewController.swift */,
+				0A0A1E9424D6B411001BA5CE /* fonts */,
 				0ACE7EF0249F693700E94ACF /* Assets.xcassets */,
 				0ACE7EF2249F693700E94ACF /* LaunchScreen.storyboard */,
 				0ACE7EF5249F693700E94ACF /* Info.plist */,
@@ -280,12 +291,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0A1E9524D6B41F001BA5CE /* ArgentPixelCF-Regular.ttf in Resources */,
 				0ACE7EF4249F693700E94ACF /* LaunchScreen.storyboard in Resources */,
 				0ACE7EF1249F693700E94ACF /* Assets.xcassets in Resources */,
 				0A0A1E7D24D65549001BA5CE /* Situations.storyboard in Resources */,
-				0A0A1E8B24D664A8001BA5CE /* fonts in Resources */,
 				0A0A1E7B24D65534001BA5CE /* Cases.storyboard in Resources */,
 				0ACE7EEF249F693500E94ACF /* Main.storyboard in Resources */,
+				0A0A1E9624D6B422001BA5CE /* SHPinscher-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
