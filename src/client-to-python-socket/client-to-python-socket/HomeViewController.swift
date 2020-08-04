@@ -16,48 +16,40 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         updateHome()
     }
     
     func updateHome(){
-        let serverStatusText = Client.shared.returnServerStatus()
+        let serverStatusText = Client.shared.serverStatusMessage
         
         serverStatusLabel.text = serverStatusText
+        serverStatusLabel.textAlignment = .center
         
-        var image = UIImage()
-        
-        switch Client.shared.serverStatus{
-        case 0:
+        switch Client.shared.isConnected{
+        case true:
             isPlay = true
-            image = UIImage(named: "buttonPlay")!
-        case 1:
+            button.setTitle("JOGAR", for: .normal)
+        case false:
             isPlay = false
-            image = UIImage(named: "buttonUpdate")!
+            button.setTitle("ATUALIZAR", for: .normal)
             
         default:
             break
         }
-        
-        button.setImage(image, for: .normal)
     }
 
     @IBAction func touchButton(_ sender: Any) {
         if isPlay{
+            
+            let message = try! JSONEncoder().encode(ClientMessage(started_game: true, player_id: Client.shared.playerID, selected_option: nil, selected_case_id: nil, selected_case_name: nil))
+            let messageLength = String(bytes: message, encoding: .utf8)?.count
+            
+            Socket.shared.sendToServer(message: message, message_length: messageLength ?? 0)
             performSegue(withIdentifier: "segueToLoading", sender: nil)
         }
         else{
             updateHome()
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

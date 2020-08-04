@@ -13,6 +13,9 @@ protocol ClientDelegate: class {
 }
 
 class Socket: NSObject {
+    //Singleton
+    static let shared = Socket()
+    
     var delegate: ClientDelegate?
     
     //Recebe/Lê

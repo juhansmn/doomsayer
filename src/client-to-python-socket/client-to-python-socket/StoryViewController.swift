@@ -9,24 +9,25 @@
 import UIKit
 
 class StoryViewController: UIViewController {
-
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var textLabel: UILabel!
+    @IBOutlet var confirmButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //SpriteKit
-
-        // Do any additional setup after loading the view.
+        let special_color = UIColor(red: 128/255, green: 0/255, blue: 255/255, alpha: 1.0)
+        titleLabel.textColor = special_color
+        titleLabel.text = "20XX. Azimov."
+        
+        textLabel.text = "Essa é uma cidade que não deveria existir, onde os cidadãos são envoltos numa realidade de violência constante num lugar famoso apenas pela sua quantidade de lixo, corporativismo e caos urbano. Você e seu parceiro são cidadãos comuns levados, pela necessidade ou ambições particulares, a se tornarem Doomsayers, cidadãos que escolhem se envolver nessa ultra violência recompensados com dinheiro e pontos como bom cidadão para \"garantir paz\" para a Sociedade. Faça sua parte."
+        
+    }
+    @IBAction func confirmButton(_ sender: Any) {
+        transitionToPlayers()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func transitionToPlayers(){
+        performSegue(withIdentifier: "segueToPlayers", sender: nil)
     }
-    */
-
 }

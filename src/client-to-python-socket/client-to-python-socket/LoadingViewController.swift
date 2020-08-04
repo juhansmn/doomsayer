@@ -12,27 +12,13 @@ class LoadingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        var serverStatus = Client.shared.serverStatus
         
-        while serverStatus == 0{
-            serverStatus = Client.shared.serverStatus
-            
-            if serverStatus == 1{
-                performSegue(withIdentifier: "segueToStory", sender: nil)
-            }
-        }
+        Client.shared.startGameDelegate = self
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension LoadingViewController: StartGameDelegate{
+    func transitionToStory(){
+        performSegue(withIdentifier: "segueToStory", sender: nil)
     }
-    */
-
 }

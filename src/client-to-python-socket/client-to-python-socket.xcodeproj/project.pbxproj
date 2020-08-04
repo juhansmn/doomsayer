@@ -144,10 +144,10 @@
 			children = (
 				0ACE7EE7249F693500E94ACF /* AppDelegate.swift */,
 				0ACE7EE9249F693500E94ACF /* SceneDelegate.swift */,
-				0ACE7EEB249F693500E94ACF /* ViewController.swift */,
 				0ACE7F17249F697C00E94ACF /* Socket.swift */,
 				0AFAF7A924D35DB200643FBC /* Client.swift */,
 				0ACE7EED249F693500E94ACF /* Main.storyboard */,
+				0ACE7EEB249F693500E94ACF /* ViewController.swift */,
 				0A0A1E7224D64B86001BA5CE /* HomeViewController.swift */,
 				0A0A1E7424D64B9B001BA5CE /* LoadingViewController.swift */,
 				0A0A1E7824D64BC2001BA5CE /* StoryViewController.swift */,
