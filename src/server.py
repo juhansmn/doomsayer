@@ -21,10 +21,11 @@ HEADER = 64
 FORMAT = 'utf-8'
 DISCONNECTION_MESSAGE = "!EXIT"
 MAX_PLAYERS = 2
-counter = 2
+start_counter = 1
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
+server_message = None
 
 #lista de clientes ativos
 clients = []
@@ -32,7 +33,12 @@ clients = []
 #lida com cada cliente individualmente e de forma simultânea
 def handle_client(client):
 	global counter
+	global server_message
+
 	connected = True
+
+	send_playerConnection(client, True)
+	send_playerID(client)
 
 	while connected:
 		#recebe primeiro o tamanho da mensagem em bytes
@@ -48,13 +54,16 @@ def handle_client(client):
 		message = client.connection.recv(message_length)
 		message_json = json.loads(message)
 
-		print(message_length)
+		print(f"[{client.address[0]}] {message_json['started_game']}")
 
-		print(f"[{client.address[0]}] {message_json['selected_option']}")
-		client.connection.send(json.dumps(message_json).encode(FORMAT))
+		if message_json['started_game'] == True:
+			global start_counter
+			start_counter += 1
+			print(start_counter)
 
-		#if message_json['selected_option'] == 2:
-			#envia JSON para o cliente
+			if start_counter == 2:
+				server_message["startGame"] = True
+				client.connection.send(json.dumps(server_message).encode(FORMAT))
 
 		if 	message == DISCONNECTION_MESSAGE:
 			connected = False
@@ -70,11 +79,26 @@ def handle_client(client):
 
 	disconnect_client(client)
 
+def send_playerID(client):
+	player_id = {"playerID": len(clients) - 1}
+	client.connection.send(json.dumps(player_id).encode(FORMAT))
+
+def send_playerConnection(client, connected):
+	player_connection = {"isConnected": None, "serverStatusMessage":None}
+
+	if connected:
+		player_connection["isConnected"] = True
+		player_connection["serverStatusMessage"] = "Você entrou no servidor"
+		client.connection.send(json.dumps(player_connection).encode(FORMAT))
+	else:
+		player_connection["isConnected"] = False
+		player_connection["serverStatusMessage"] = "Servidor cheio (máximo de 2 jogadores)"
+		client.connection.send(json.dumps(player_connection).encode(FORMAT))
+
+
 #lida com servidor cheio (máximo de dois jogadores)
 def handle_full_server(client):
-	print("[SERVIDOR CHEIO. QUANTIDADE MÁXIMA DE JOGADORES ATINGIDA]")
-
-	client.connection.send("[SERVIDOR CHEIO. QUANTIDADE MÁXIMA DE JOGADORES ATINGIDA]".encode(FORMAT))
+	send_playerConnection(client, False)
 	disconnect_client(client)
 
 #disconecta o cliente do servidor
@@ -83,9 +107,16 @@ def disconnect_client(client):
 		client.connection.close()
 		clients.remove(client)
 
+def loadJSON():
+	global server_message
+
+	with open("serverMessage.json", encoding='utf-8') as file:
+		server_message = json.loads(file.read())
+
 #direciona cada cliente conectado
 def start():
 	print(f"[SERVER] {SERVER} iniciou!")
+	loadJSON()
 	#possibilita conexões
 	server.listen()
 

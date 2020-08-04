@@ -1,0 +1,18 @@
+{
+   "RC":0,
+   "situationDescription":null,
+   "optionsButtonsNames":null,
+   "startGame":null,
+   "players":[
+      {
+         "selectedCase":null,
+         "selectedCaseDescription":null,
+         "selectedOption":null
+      },
+      {
+         "selectedCase":null,
+         "selectedCaseDescription":null,
+         "selectedOption":null
+      }
+   ]
+}
