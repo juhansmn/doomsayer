@@ -37,6 +37,10 @@ class CasesListViewController: UIViewController {
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+        Client.shared.updateClientSelectedCaseID(caseID: 0)
+        
+        Client.shared.sendClientInfo()
+        
         performSegue(withIdentifier: "segueToCaseStory", sender: self)
     }
 }

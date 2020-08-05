@@ -16,12 +16,16 @@ protocol StartGameDelegate: class {
     func transitionToStory()
 }
 
+protocol StartCaseDelegate: class {
+    func transitionToCase()
+}
+
 struct ClientMessage: Codable {
     var started_game: Bool?
+    var started_case: Bool?
     var player_id: Int?
-    var selected_option: String?
+    var selected_option: Int?
     var selected_case_id: Int?
-    var selected_case_name: String?
 }
 
 class Client {
@@ -31,17 +35,23 @@ class Client {
     
     var connectionDelegate: ConnectionDelegate?
     var startGameDelegate: StartGameDelegate?
+    var startCaseDelegate: StartCaseDelegate?
     
+    //Client Message
+    var ClientInfo = ClientMessage(started_game: nil, started_case: nil, player_id: nil, selected_option: nil, selected_case_id: nil)
+    
+    //Server Message
     var playerID: Int?
     var RC: Int?
     var selectedOption: Int?
     var selectedCase: Int?
-    var topImageName: String?
     var situationDescription: String?
     var selectedCaseDescription: String?
+    var selectedCaseTitle: String?
     var optionsButtonsNames: [String]?
     var isConnected: Bool?
     var startGame: Bool?
+    var startCase: Bool?
     var serverStatusMessage: String?
     
     func connectToServer(){
@@ -49,20 +59,31 @@ class Client {
         Socket.shared.setupNetwork()
     }
     
-    func returnTopImageName(situationId: Int) -> String{
-        return topImageName ?? "ERRO"
+    func sendClientInfo(){
+        let message = try! JSONEncoder().encode(Client.shared.ClientInfo)
+        let messageLength = String(bytes: message, encoding: .utf8)?.count
+        
+        Socket.shared.sendToServer(message: message, message_length: messageLength ?? 0)
     }
     
-    func returnOptionsNames(situationId: Int) -> [String]{
-        return optionsButtonsNames ?? ["ERRO", "ERRO", "ERRO", "ERRO"]
+    func updateClientStartedGame(){
+        ClientInfo.started_game = true
     }
     
-    func returnSituationDescription(situationId: Int) -> String{
-        return situationDescription ?? "ERRO"
+    func updateClientStartedCase(){
+        ClientInfo.started_case = true
     }
     
-    func returnServerStatus() -> String{
-        return serverStatusMessage ?? "ERRO"
+    func updateClientPlayerID(){
+        ClientInfo.player_id = Client.shared.playerID
+    }
+    
+    func updateClientSelectedOption(option: Int){
+        ClientInfo.selected_option = option
+    }
+    
+    func updateClientSelectedCaseID(caseID: Int){
+        ClientInfo.selected_case_id = caseID
     }
     
     func updateAttributes(){
@@ -85,16 +106,22 @@ class Client {
             startGameDelegate?.transitionToStory()
         }
         
-        //Se o servidor estiver não estiver cheio
+        if let startCase = serverMessage?["startCase"] as? Bool{
+            Client.shared.startCase = startCase
+            
+            startCaseDelegate?.transitionToCase()
+        }
+        
+        //Se o jogador tiver conseguido se conectar (por espaço e disponibilidade do servidor)
         if Client.shared.isConnected == true{
             if let sv = serverMessage?["players"] as? [[String: AnyObject]]{
                 Client.shared.selectedOption = sv[Client.shared.playerID!]["selectedOption"] as? Int
                 Client.shared.selectedCase = sv[Client.shared.playerID!]["selectedCase"] as? Int
+                Client.shared.selectedCaseTitle = sv[Client.shared.playerID!]["selectedCaseTitle"] as? String
                 Client.shared.selectedCaseDescription = sv[Client.shared.playerID!]["selectedCaseDescription"] as? String
             }
             
             Client.shared.RC = serverMessage?["RC"] as? Int
-            Client.shared.topImageName = (serverMessage?["topImageName"]) as? String
             Client.shared.situationDescription = serverMessage?["situationDescription"] as? String
             Client.shared.optionsButtonsNames = serverMessage?["optionsButtonsNames"] as? [String]
         }
