@@ -10,6 +10,8 @@ import UIKit
 
 class CasesStoryViewController: UIViewController {
 
+    @IBOutlet var casoTitleLabel: UILabel!
+    @IBOutlet var caseInfoLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 

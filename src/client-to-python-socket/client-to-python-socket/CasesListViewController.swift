@@ -10,21 +10,33 @@ import UIKit
 
 class CasesListViewController: UIViewController {
 
+    @IBOutlet var RClabel: UILabel!
+    @IBOutlet var RCImageView: UIImageView!
+    @IBOutlet var caseOneImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let special_color = UIColor(red: 128/255, green: 0/255, blue: 255/255, alpha: 1.0)
+        RClabel.textColor = special_color
+        RClabel.text = String(Client.shared.RC ?? 0)
+        
+        if Int(RClabel.text!)! > 0{
+            //Icone feliz
+            RCImageView.image = UIImage(named: "icon-small-happy")
+        }
+        else{
+            //Icone triste
+            RCImageView.image = UIImage(named: "icon-small-sad")
+        }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        caseOneImageView.isUserInteractionEnabled = true
+        caseOneImageView.addGestureRecognizer(tapGestureRecognizer)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+        performSegue(withIdentifier: "segueToCaseStory", sender: self)
     }
-    */
-
 }
