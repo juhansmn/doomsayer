@@ -42,10 +42,11 @@ class HomeViewController: UIViewController {
     @IBAction func touchButton(_ sender: Any) {
         if isPlay{
             
-            let message = try! JSONEncoder().encode(ClientMessage(started_game: true, player_id: Client.shared.playerID, selected_option: nil, selected_case_id: nil, selected_case_name: nil))
-            let messageLength = String(bytes: message, encoding: .utf8)?.count
+            Client.shared.updateClientPlayerID()
+            Client.shared.updateClientStartedGame()
             
-            Socket.shared.sendToServer(message: message, message_length: messageLength ?? 0)
+            Client.shared.sendClientInfo()
+            
             performSegue(withIdentifier: "segueToLoading", sender: nil)
         }
         else{

@@ -46,6 +46,7 @@
                         <outlet property="RCImageView" destination="hKQ-gh-b5O" id="jE7-kx-CoU"/>
                         <outlet property="RClabel" destination="4za-U9-z8k" id="7lU-OZ-Etg"/>
                         <outlet property="caseOneImageView" destination="GJb-OF-ixd" id="ZHF-ws-7zz"/>
+                        <segue destination="teT-9y-sCB" kind="presentation" identifier="SegueToStory" modalPresentationStyle="fullScreen" id="2d8-T4-1kX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIX-aQ-csk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -74,6 +75,9 @@
                                 <state key="normal" title="JOGAR" backgroundImage="nselecionado-base">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmCase:" destination="teT-9y-sCB" eventType="touchUpInside" id="v03-Eu-JdD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4w-rq-F6C">
                                 <rect key="frame" x="5" y="13" width="30" height="51"/>
@@ -82,6 +86,9 @@
                                 <state key="normal" title="&lt;">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="backToCases:" destination="teT-9y-sCB" eventType="touchUpInside" id="7k8-6s-vuW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caso 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odc-EC-bPv">
                                 <rect key="frame" x="168" y="91" width="78" height="32"/>
@@ -96,12 +103,14 @@
                     </view>
                     <connections>
                         <outlet property="caseInfoLabel" destination="TOJ-ww-2fY" id="qrH-3n-WUr"/>
-                        <outlet property="casoTitleLabel" destination="odc-EC-bPv" id="qm2-9a-W2G"/>
+                        <outlet property="caseTitleLabel" destination="odc-EC-bPv" id="Q7G-DV-SPP"/>
+                        <segue destination="sYn-Lm-HJW" kind="presentation" identifier="SegueToLoading" modalPresentationStyle="fullScreen" id="zvx-BV-JYP"/>
+                        <segue destination="EHX-rU-aP2" kind="presentation" identifier="SegueToCases" modalPresentationStyle="fullScreen" id="OpJ-bQ-mlc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AsQ-Lg-0uO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569.56521739130437" y="64.955357142857139"/>
+            <point key="canvasLocation" x="591" y="65"/>
         </scene>
         <!--Loading Case View Controller-->
         <scene sceneID="qbM-2y-slw">
@@ -122,10 +131,21 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mrQ-T4-cgA"/>
                     </view>
+                    <connections>
+                        <segue destination="AKi-hI-ynt" kind="presentation" identifier="segueToIntroSituation" modalPresentationStyle="fullScreen" id="BXs-0d-KNn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKJ-vp-g4E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1203" y="65"/>
+            <point key="canvasLocation" x="1248" y="65"/>
+        </scene>
+        <!--Situations-->
+        <scene sceneID="B8H-he-tlt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Situations" id="AKi-hI-ynt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cgR-XX-ebj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1786" y="65"/>
         </scene>
     </scenes>
     <resources>
