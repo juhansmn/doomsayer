@@ -26,6 +26,7 @@ struct ClientMessage: Codable {
     var player_id: Int?
     var selected_option: Int?
     var selected_case_id: Int?
+    var situation_id: Int?
 }
 
 class Client {
@@ -38,7 +39,7 @@ class Client {
     var startCaseDelegate: StartCaseDelegate?
     
     //Client Message
-    var ClientInfo = ClientMessage(started_game: nil, started_case: nil, player_id: nil, selected_option: nil, selected_case_id: nil)
+    var ClientInfo = ClientMessage(started_game: nil, started_case: nil, player_id: nil, selected_option: nil, selected_case_id: nil, situation_id: 0)
     
     //Server Message
     var playerID: Int?
@@ -48,6 +49,7 @@ class Client {
     var situationDescription: String?
     var selectedCaseDescription: String?
     var selectedCaseTitle: String?
+    var situationID: Int?
     var optionsButtonsNames: [String]?
     var isConnected: Bool?
     var startGame: Bool?
@@ -86,6 +88,10 @@ class Client {
         ClientInfo.selected_case_id = caseID
     }
     
+    func updateClientSituationID(situationID: Int){
+        ClientInfo.situation_id = situationID
+    }
+    
     func updateAttributes(){
         //Checa se a mensagem é a de conexão
         if let isConnected = serverMessage?["isConnected"] as? Bool{
@@ -122,6 +128,7 @@ class Client {
             }
             
             Client.shared.RC = serverMessage?["RC"] as? Int
+            Client.shared.situationID = serverMessage?["situationID"] as? Int
             Client.shared.situationDescription = serverMessage?["situationDescription"] as? String
             Client.shared.optionsButtonsNames = serverMessage?["optionsButtonsNames"] as? [String]
         }

@@ -6,17 +6,49 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArgentPixelCF-Regular.ttf">
+            <string>ArgentPixelCF-Regular</string>
+        </array>
+        <array key="SHPinscher-Regular.ttf">
+            <string>SHPinscher-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Intro Situation View Controller-->
         <scene sceneID="xln-jR-BPp">
             <objects>
-                <viewController id="EPC-AB-RvB" sceneMemberID="viewController">
+                <viewController id="EPC-AB-RvB" customClass="IntroSituationViewController" customModule="client_to_python_socket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8O6-ud-6jt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOM-7f-BVD">
+                                <rect key="frame" x="163" y="764" width="88" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SHPinscher-Regular" family="SH Pinscher" pointSize="24"/>
+                                <state key="normal" title="IR" backgroundImage="nselecionado-base">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startSituations:" destination="EPC-AB-RvB" eventType="touchUpInside" id="gDA-7V-kW5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyh-Xb-jz5">
+                                <rect key="frame" x="32" y="138" width="351" height="343"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArgentPixelCF-Regular" family="Argent Pixel CF" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kMW-bv-bpJ"/>
                     </view>
+                    <connections>
+                        <outlet property="introLabel" destination="qyh-Xb-jz5" id="mGs-an-bqf"/>
+                        <segue destination="UWN-RL-Hzw" kind="presentation" identifier="segueToSituations" modalPresentationStyle="fullScreen" id="ced-Hw-JUM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxZ-Vn-seg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -29,28 +61,102 @@
                     <view key="view" contentMode="scaleToFill" id="lih-6a-wTJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fL0-CJ-Ftv">
+                                <rect key="frame" x="24" y="491" width="172" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SHPinscher-Regular" family="SH Pinscher" pointSize="24"/>
+                                <state key="normal" backgroundImage="nselecionado-base">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchedButtonWithSender:" destination="UWN-RL-Hzw" eventType="touchUpInside" id="F0h-Pb-Zhi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LP-lV-ula">
+                                <rect key="frame" x="219" y="491" width="172" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SHPinscher-Regular" family="SH Pinscher" pointSize="24"/>
+                                <state key="normal" backgroundImage="nselecionado-base">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchedButtonWithSender:" destination="UWN-RL-Hzw" eventType="touchUpInside" id="Xcn-Tg-132"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m50-Ck-dHU">
+                                <rect key="frame" x="24" y="579" width="172" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SHPinscher-Regular" family="SH Pinscher" pointSize="24"/>
+                                <state key="normal" backgroundImage="nselecionado-base">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchedButtonWithSender:" destination="UWN-RL-Hzw" eventType="touchUpInside" id="GBo-vx-g7T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUf-tm-fGc">
+                                <rect key="frame" x="219" y="579" width="172" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SHPinscher-Regular" family="SH Pinscher" pointSize="24"/>
+                                <state key="normal" backgroundImage="nselecionado-base">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchedButtonWithSender:" destination="UWN-RL-Hzw" eventType="touchUpInside" id="wJa-VQ-hcB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQx-Nl-wPl">
+                                <rect key="frame" x="163" y="764" width="88" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SHPinscher-Regular" family="SH Pinscher" pointSize="24"/>
+                                <state key="normal" title="OK" backgroundImage="nselecionado-base">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirm:" destination="UWN-RL-Hzw" eventType="touchUpInside" id="E24-cS-MYH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39X-eM-tXX">
+                                <rect key="frame" x="27" y="138" width="360" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArgentPixelCF-Regular" family="Argent Pixel CF" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="na9-Ro-L71"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="LQx-Nl-wPl" id="hed-2n-fwC"/>
+                        <outletCollection property="buttons" destination="fL0-CJ-Ftv" collectionClass="NSMutableArray" id="Whw-AU-8Hv"/>
+                        <outletCollection property="buttons" destination="8LP-lV-ula" collectionClass="NSMutableArray" id="GGX-Vq-D0W"/>
+                        <outletCollection property="buttons" destination="m50-Ck-dHU" collectionClass="NSMutableArray" id="Pas-oc-Z20"/>
+                        <outletCollection property="buttons" destination="vUf-tm-fGc" collectionClass="NSMutableArray" id="h0s-he-Rci"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3z1-3Z-qew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="86"/>
+            <point key="canvasLocation" x="624.63768115942037" y="85.714285714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--Ending Case View Controller-->
         <scene sceneID="qtS-ul-Vap">
             <objects>
-                <viewController id="nCA-lZ-zab" sceneMemberID="viewController">
+                <viewController id="nCA-lZ-zab" customClass="EndingCaseViewController" customModule="client_to_python_socket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3KL-kR-QGH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="XG1-CB-ul5"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSM-PK-mRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1251" y="86"/>
+            <point key="canvasLocation" x="1286" y="86"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nselecionado-base" width="170" height="68"/>
+    </resources>
 </document>

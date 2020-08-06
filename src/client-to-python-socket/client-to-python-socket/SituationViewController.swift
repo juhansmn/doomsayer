@@ -10,30 +10,57 @@ import SpriteKit
 
 class SituationViewController: UIViewController {
 
+    @IBOutlet var buttons : [UIButton]!
+    var buttonWasSelected = false
+    var selectedButton: Int?
+    var confirmed = false
+    @IBOutlet var confirmButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Atualiza label
+        //Atualiza botões
+        
+        confirmButton.isHidden = true
+        
+        /*
         let scene = SituationScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         scene.scaleMode = .aspectFill
         
         let skView = view as! SKView
         
         skView.presentScene(scene)
+        */
+    }
+    @IBAction func touchedButton(sender: UIButton) {
+        
+        if buttonWasSelected && selectedButton == sender.tag && !confirmed{
+            for button in buttons{
+                if button.tag != sender.tag{
+                    button.isHidden = false
+                }
+            }
+            buttonWasSelected = false
+            selectedButton = nil
+            buttons[sender.tag].setImage(UIImage(named: ""), for: .normal)
+            confirmButton.isHidden = true
+        }
+        
+        else if !buttonWasSelected && !confirmed{
+            for button in buttons{
+                if button.tag != sender.tag{
+                    button.isHidden = true
+                }
+            }
+            buttonWasSelected = true
+            selectedButton = sender.tag
+            buttons[sender.tag].setImage(UIImage(named: ""), for: .normal)
+            confirmButton.isHidden = false
+        }
     }
     
-    //Método que adiciona imagem
-    //Método que carrega texto (cada tela de situação tem um ID. Uma outra classe vai pegar o JSON de cada situação retornar o texto para carregar essa opção por opção e resumo)
-    //Método de navegação (baseado em parâmetro com o que o servidor retornar)
-    //Atualiza id (recebe do servidor)
-
-    /*
-    MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func confirm(_ sender: Any) {
+        //Ao clicar no de OK, uma mensagem é enviada para o servidor, ao isso acontecer, o ícone do jogador fica escuro (SituationDelegate para escurecer a do seu parceiro).
     }
-    */
-
 }

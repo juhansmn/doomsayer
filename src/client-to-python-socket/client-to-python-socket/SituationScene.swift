@@ -18,9 +18,7 @@ class SituationScene: SKScene{
     var situationID = 0
     
     override func didMove(to view: SKView) {
-        situationID = getID()
-        
-        setupTopImage()
+        situationID = Client.shared.situationID ?? 0
         
         for (i, option) in optionsButtons.enumerated(){
             setupButton(button: option, name: "option\(i)", height: 60, width: 200, x: 0, y: 0)
@@ -30,28 +28,10 @@ class SituationScene: SKScene{
         updateInformation(id: situationID)
     }
     
-    //Recebe o id do servidor
-    func getID() -> Int{
-        return 0
-    }
-    
     //Atualiza informações da Cena
     func updateInformation(id: Int){
         //Adiciona imagem 
         //Carrega texto
-    }
-    
-    //Configura imagem superior
-    func setupTopImage(){
-        topImage.size = CGSize(width: 0, height: 0)
-        topImage.position = CGPoint(x: 0, y: 0)
-        topImage.zPosition = 0
-    }
-    
-    //Atualiza imagem superior
-    func updateTopImage(){
-        let imageName = Client.shared.returnTopImageName(situationId: situationID)
-        topImage.texture = SKTexture(imageNamed: imageName)
     }
     
     func setupDescription(){
