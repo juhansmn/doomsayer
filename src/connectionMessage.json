@@ -1,4 +1,4 @@
 {
-   "serverStatus":0,
+   "isConnected":null,
    "serverStatusMessage":"Você entrou no servidor",
 }

@@ -21,7 +21,8 @@ HEADER = 64
 FORMAT = 'utf-8'
 DISCONNECTION_MESSAGE = "!EXIT"
 MAX_PLAYERS = 2
-start_counter = 1
+start_game_counter = 1
+start_case_counter = 1
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
@@ -57,44 +58,31 @@ def handle_client(client):
 		print(f"[{client.address[0]}] {message_json['started_game']}")
 
 		if message_json['started_game'] == True:
-			global start_counter
-			start_counter += 1
-			print(start_counter)
+			global start_game_counter
+			start_game_counter += 1
 
-			if start_counter == 2:
+			if start_game_counter == 2:
 				server_message["startGame"] = True
-				client.connection.send(json.dumps(server_message).encode(FORMAT))
+				for c in clients:
+					c.connection.sendall(json.dumps(server_message).encode(FORMAT))
 
-		if 	message == DISCONNECTION_MESSAGE:
-			connected = False
-			break
+		if message_json['selected_case_id'] != null:
+			server_message["selectedCase"] = message_json['selected_case_id']
+			server_message["selectedCaseTitle"] = ""
+			server_message["selectedCaseDescription"] = ""
 
-		elif message == "count":
-			counter += 1
-			print(counter)
+			client.connection.send(json.dumps(server_message).encode(FORMAT))
 
-		elif message == "confirm" and counter == 2:
-			for c in clients:
-				c.connection.sendall("Confirmado.".encode(FORMAT))
+		if message_json['started_case'] == True:
+			global start_case_counter
+			start_case_counter += 1
+
+			if start_case_counter == 2:
+				server_message["startCase"] = True
+				for c in clients:
+					c.connection.sendall(json.dumps(server_message).encode(FORMAT))
 
 	disconnect_client(client)
-
-def send_playerID(client):
-	player_id = {"playerID": len(clients) - 1}
-	client.connection.send(json.dumps(player_id).encode(FORMAT))
-
-def send_playerConnection(client, connected):
-	player_connection = {"isConnected": None, "serverStatusMessage":None}
-
-	if connected:
-		player_connection["isConnected"] = True
-		player_connection["serverStatusMessage"] = "Você entrou no servidor"
-		client.connection.send(json.dumps(player_connection).encode(FORMAT))
-	else:
-		player_connection["isConnected"] = False
-		player_connection["serverStatusMessage"] = "Servidor cheio (máximo de 2 jogadores)"
-		client.connection.send(json.dumps(player_connection).encode(FORMAT))
-
 
 #lida com servidor cheio (máximo de dois jogadores)
 def handle_full_server(client):
@@ -107,7 +95,24 @@ def disconnect_client(client):
 		client.connection.close()
 		clients.remove(client)
 
-def loadJSON():
+def send_playerID(client):
+	player_id = {"playerID": len(clients) - 1}
+	client.connection.send(json.dumps(player_id).encode(FORMAT))
+
+def send_playerConnection(client, connected):
+	with open("connectionMessage.json", encoding='utf-8') as file:
+		player_connection = json.loads(file.read())
+
+		if connected:
+			player_connection["isConnected"] = True
+			player_connection["serverStatusMessage"] = "Você entrou no servidor"
+			client.connection.send(json.dumps(player_connection).encode(FORMAT))
+		else:
+			player_connection["isConnected"] = False
+			player_connection["serverStatusMessage"] = "Servidor cheio (máximo de 2 jogadores)"
+			client.connection.send(json.dumps(player_connection).encode(FORMAT))
+
+def loadJSONs():
 	global server_message
 
 	with open("serverMessage.json", encoding='utf-8') as file:
@@ -116,7 +121,7 @@ def loadJSON():
 #direciona cada cliente conectado
 def start():
 	print(f"[SERVER] {SERVER} iniciou!")
-	loadJSON()
+	loadJSONs()
 	#possibilita conexões
 	server.listen()
 

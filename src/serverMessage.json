@@ -3,15 +3,18 @@
    "situationDescription":null,
    "optionsButtonsNames":null,
    "startGame":null,
+   "startCase":null,
    "players":[
       {
          "selectedCase":null,
          "selectedCaseDescription":null,
+         "selectedCaseTitle":null,
          "selectedOption":null
       },
       {
          "selectedCase":null,
          "selectedCaseDescription":null,
+         "selectedCaseTitle":null,
          "selectedOption":null
       }
    ]
