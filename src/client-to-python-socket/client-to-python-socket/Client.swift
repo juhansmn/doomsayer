@@ -16,6 +16,10 @@ protocol StartGameDelegate: class {
     func transitionToStory()
 }
 
+protocol CaseInfoDelegate: class {
+    func showCaseInfo()
+}
+
 protocol StartCaseDelegate: class {
     func transitionToCase()
 }
@@ -29,10 +33,10 @@ protocol SituationDelegate: class {
 struct ClientMessage: Codable {
     var started_game: Bool?
     var started_case: Bool?
-    var player_id: Int?
+    var player_id = 1
     var selected_option: Int?
-    var selected_case_id: Int?
-    var situation_id: Int?
+    var selected_case_id = 0
+    var situation_id = 0
 }
 
 class Client {
@@ -42,11 +46,12 @@ class Client {
     
     var connectionDelegate: ConnectionDelegate?
     var startGameDelegate: StartGameDelegate?
+    var caseInfoDelegate: CaseInfoDelegate?
     var startCaseDelegate: StartCaseDelegate?
     var situationDelegate: SituationDelegate?
     
     //Client Message
-    var ClientInfo = ClientMessage(started_game: nil, started_case: nil, player_id: nil, selected_option: nil, selected_case_id: nil, situation_id: 0)
+    var ClientInfo = ClientMessage(started_game: false, started_case: false, player_id: 1, selected_option: 0, selected_case_id: 0, situation_id: 0)
     
     //Server Message
     var playerID: Int?
@@ -85,7 +90,7 @@ class Client {
     }
     
     func updateClientPlayerID(){
-        ClientInfo.player_id = Client.shared.playerID
+        ClientInfo.player_id = Client.shared.playerID!
     }
     
     func updateClientSelectedOption(option: Int){
@@ -97,7 +102,7 @@ class Client {
     }
     
     func updateClientSituationID(){
-        ClientInfo.situation_id! += 1
+        ClientInfo.situation_id += 1
     }
     
     func updateAttributes(){
@@ -112,7 +117,6 @@ class Client {
         //Checa se a mensagem é a do ID do jogador
         if let playerID = serverMessage?["playerID"] as? Int{
             Client.shared.playerID = playerID
-            print(playerID)
         }
         
         if let startGame = serverMessage?["startGame"] as? Bool{
@@ -123,7 +127,6 @@ class Client {
         
         if let startCase = serverMessage?["startCase"] as? Bool{
             Client.shared.startCase = startCase
-            
             startCaseDelegate?.transitionToCase()
         }
         
@@ -143,11 +146,19 @@ class Client {
         
         //Se o jogador tiver conseguido se conectar (por espaço e disponibilidade do servidor)
         if Client.shared.isConnected == true{
+
             if let sv = serverMessage?["players"] as? [[String: AnyObject]]{
-                Client.shared.selectedOption = sv[Client.shared.playerID!]["selectedOption"] as? Int
-                Client.shared.selectedCase = sv[Client.shared.playerID!]["selectedCase"] as? Int
-                Client.shared.selectedCaseTitle = sv[Client.shared.playerID!]["selectedCaseTitle"] as? String
-                Client.shared.selectedCaseDescription = sv[Client.shared.playerID!]["selectedCaseDescription"] as? String
+                if let _ = sv[Client.shared.playerID!]["selectedCase"] as? Int{
+                    Client.shared.selectedCase = sv[Client.shared.playerID!]["selectedCase"] as? Int
+                    Client.shared.selectedCaseTitle = sv[Client.shared.playerID!]["selectedCaseTitle"] as? String
+                    Client.shared.selectedCaseDescription = sv[Client.shared.playerID!]["selectedCaseDescription"] as? String
+                    
+                    caseInfoDelegate?.showCaseInfo()
+                }
+                
+                if let selectedOption = sv[Client.shared.playerID!]["selectedOption"] as? Int{
+                    Client.shared.selectedOption = selectedOption
+                }
                 Client.shared.potraitNumber = sv[Client.shared.playerID!]["portraitNumber"] as? Int
             }
             
@@ -166,8 +177,6 @@ extension Client: ClientDelegate{
     func receivedMessage(message: String) {
         do{
             serverMessage = try JSONSerialization.jsonObject(with: message.data(using: .utf8)!, options: []) as? [String:Any]
-            //let jsonData = try JSONSerialization.data(withJSONObject: jsonArray, options: .fragmentsAllowed)
-            print(serverMessage)
             updateAttributes()
         }
         catch{

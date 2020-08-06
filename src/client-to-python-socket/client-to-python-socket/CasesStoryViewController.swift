@@ -16,21 +16,26 @@ class CasesStoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let special_color = UIColor(red: 128/255, green: 0/255, blue: 255/255, alpha: 1.0)
-        caseTitleLabel.textColor = special_color
-        caseTitleLabel.text = Client.shared.selectedCaseTitle
-        caseInfoLabel.text = Client.shared.selectedCaseDescription
+        Client.shared.caseInfoDelegate = self
         
     }
+    
     @IBAction func backToCases(_ sender: Any) {
         performSegue(withIdentifier: "segueToCases", sender: self)
     }
     
     @IBAction func confirmCase(_ sender: Any) {
-        Client.shared.updateClientStartedCase()
-        
-        Client.shared.sendClientInfo()
-        
         performSegue(withIdentifier: "segueToLoading", sender: self)
+    }
+}
+
+extension CasesStoryViewController: CaseInfoDelegate{
+    func showCaseInfo(){
+        let special_color = UIColor(red: 128/255, green: 0/255, blue: 255/255, alpha: 1.0)
+        caseTitleLabel.textColor = special_color
+        caseTitleLabel.text = Client.shared.selectedCaseTitle
+        caseTitleLabel.textAlignment = .center
+        
+        caseInfoLabel.text = Client.shared.selectedCaseDescription
     }
 }
