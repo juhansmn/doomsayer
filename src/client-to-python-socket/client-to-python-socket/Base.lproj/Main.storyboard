@@ -212,7 +212,9 @@
                         <viewLayoutGuide key="safeArea" id="b4G-7S-w8c"/>
                     </view>
                     <connections>
+                        <outlet property="partnerImageView" destination="GmH-Nu-Ayb" id="hJN-ZV-kCg"/>
                         <outlet property="partnerLabel" destination="TBz-4y-xVy" id="d0y-sd-Lkh"/>
+                        <outlet property="youImageView" destination="0dL-df-9JL" id="GRt-jt-Zkt"/>
                         <outlet property="youLabel" destination="8jO-Id-3zi" id="AXF-VR-gi6"/>
                     </connections>
                 </viewController>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EPC-AB-RvB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -106,6 +106,13 @@
                                     <action selector="touchedButtonWithSender:" destination="UWN-RL-Hzw" eventType="touchUpInside" id="wJa-VQ-hcB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39X-eM-tXX">
+                                <rect key="frame" x="27" y="138" width="360" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArgentPixelCF-Regular" family="Argent Pixel CF" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQx-Nl-wPl">
                                 <rect key="frame" x="163" y="764" width="88" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -117,23 +124,28 @@
                                     <action selector="confirm:" destination="UWN-RL-Hzw" eventType="touchUpInside" id="E24-cS-MYH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39X-eM-tXX">
-                                <rect key="frame" x="27" y="138" width="360" height="200"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1-idle" translatesAutoresizingMaskIntoConstraints="NO" id="cI3-s9-Nsl">
+                                <rect key="frame" x="24" y="760" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArgentPixelCF-Regular" family="Argent Pixel CF" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2-idle" translatesAutoresizingMaskIntoConstraints="NO" id="BWs-Wl-3k5">
+                                <rect key="frame" x="319" y="760" width="72" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="na9-Ro-L71"/>
                     </view>
                     <connections>
                         <outlet property="confirmButton" destination="LQx-Nl-wPl" id="hed-2n-fwC"/>
+                        <outlet property="descriptionLabel" destination="39X-eM-tXX" id="ZhT-fk-ZLX"/>
+                        <outlet property="partnerImageView" destination="BWs-Wl-3k5" id="MdQ-5j-ifi"/>
+                        <outlet property="youImageView" destination="cI3-s9-Nsl" id="hLE-Uq-CDR"/>
                         <outletCollection property="buttons" destination="fL0-CJ-Ftv" collectionClass="NSMutableArray" id="Whw-AU-8Hv"/>
                         <outletCollection property="buttons" destination="8LP-lV-ula" collectionClass="NSMutableArray" id="GGX-Vq-D0W"/>
                         <outletCollection property="buttons" destination="m50-Ck-dHU" collectionClass="NSMutableArray" id="Pas-oc-Z20"/>
                         <outletCollection property="buttons" destination="vUf-tm-fGc" collectionClass="NSMutableArray" id="h0s-he-Rci"/>
+                        <segue destination="nCA-lZ-zab" kind="presentation" identifier="segueToEnding" modalPresentationStyle="fullScreen" id="E2M-LG-9GZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3z1-3Z-qew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -143,20 +155,54 @@
         <!--Ending Case View Controller-->
         <scene sceneID="qtS-ul-Vap">
             <objects>
-                <viewController id="nCA-lZ-zab" customClass="EndingCaseViewController" customModule="client_to_python_socket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="nCA-lZ-zab" customClass="EndingCaseViewController" customModule="client_to_python_socket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3KL-kR-QGH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qt-Qf-FF2">
+                                <rect key="frame" x="32" y="138" width="351" height="343"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArgentPixelCF-Regular" family="Argent Pixel CF" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BI9-k6-mwB">
+                                <rect key="frame" x="163" y="764" width="88" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SHPinscher-Regular" family="SH Pinscher" pointSize="24"/>
+                                <state key="normal" title="OK" backgroundImage="nselecionado-base">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="transitionToCaseList:" destination="nCA-lZ-zab" eventType="touchUpInside" id="gj4-MQ-25o"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="XG1-CB-ul5"/>
                     </view>
+                    <connections>
+                        <outlet property="endingLabel" destination="2Qt-Qf-FF2" id="HMQ-Mu-zkU"/>
+                        <segue destination="Bod-ed-HQR" kind="presentation" identifier="segueToCases" modalPresentationStyle="fullScreen" id="8cc-RF-lud"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSM-PK-mRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1286" y="86"/>
         </scene>
+        <!--Cases-->
+        <scene sceneID="p7H-2b-ZFu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Cases" id="Bod-ed-HQR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jsn-lC-Gsx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1807" y="86"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="1-idle" width="144" height="144"/>
+        <image name="2-idle" width="144" height="144"/>
         <image name="nselecionado-base" width="170" height="68"/>
     </resources>
 </document>

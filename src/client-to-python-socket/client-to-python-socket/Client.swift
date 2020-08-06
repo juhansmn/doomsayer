@@ -20,6 +20,12 @@ protocol StartCaseDelegate: class {
     func transitionToCase()
 }
 
+protocol SituationDelegate: class {
+    func partnerConfirmed()
+    func showResult()
+    func updateInfo()
+    func endCase()
+}
 struct ClientMessage: Codable {
     var started_game: Bool?
     var started_case: Bool?
@@ -37,6 +43,7 @@ class Client {
     var connectionDelegate: ConnectionDelegate?
     var startGameDelegate: StartGameDelegate?
     var startCaseDelegate: StartCaseDelegate?
+    var situationDelegate: SituationDelegate?
     
     //Client Message
     var ClientInfo = ClientMessage(started_game: nil, started_case: nil, player_id: nil, selected_option: nil, selected_case_id: nil, situation_id: 0)
@@ -50,11 +57,12 @@ class Client {
     var selectedCaseDescription: String?
     var selectedCaseTitle: String?
     var situationID: Int?
-    var optionsButtonsNames: [String]?
     var isConnected: Bool?
     var startGame: Bool?
     var startCase: Bool?
     var serverStatusMessage: String?
+    var potraitNumber: Int?
+    var result: Int?
     
     func connectToServer(){
         Socket.shared.delegate = Client.shared
@@ -88,8 +96,8 @@ class Client {
         ClientInfo.selected_case_id = caseID
     }
     
-    func updateClientSituationID(situationID: Int){
-        ClientInfo.situation_id = situationID
+    func updateClientSituationID(){
+        ClientInfo.situation_id! += 1
     }
     
     func updateAttributes(){
@@ -104,6 +112,7 @@ class Client {
         //Checa se a mensagem é a do ID do jogador
         if let playerID = serverMessage?["playerID"] as? Int{
             Client.shared.playerID = playerID
+            print(playerID)
         }
         
         if let startGame = serverMessage?["startGame"] as? Bool{
@@ -118,6 +127,20 @@ class Client {
             startCaseDelegate?.transitionToCase()
         }
         
+        if (serverMessage?["partnerConfirmed"] as? Bool) != nil{
+            situationDelegate?.partnerConfirmed()
+        }
+        
+        if let result = serverMessage?["result"] as? Int{
+            Client.shared.result = result
+            situationDelegate?.showResult()
+            Client.shared.result = nil
+        }
+        
+        if (serverMessage?["endCase"] as? Bool) != nil{
+            situationDelegate?.endCase()
+        }
+        
         //Se o jogador tiver conseguido se conectar (por espaço e disponibilidade do servidor)
         if Client.shared.isConnected == true{
             if let sv = serverMessage?["players"] as? [[String: AnyObject]]{
@@ -125,12 +148,16 @@ class Client {
                 Client.shared.selectedCase = sv[Client.shared.playerID!]["selectedCase"] as? Int
                 Client.shared.selectedCaseTitle = sv[Client.shared.playerID!]["selectedCaseTitle"] as? String
                 Client.shared.selectedCaseDescription = sv[Client.shared.playerID!]["selectedCaseDescription"] as? String
+                Client.shared.potraitNumber = sv[Client.shared.playerID!]["portraitNumber"] as? Int
             }
             
             Client.shared.RC = serverMessage?["RC"] as? Int
             Client.shared.situationID = serverMessage?["situationID"] as? Int
             Client.shared.situationDescription = serverMessage?["situationDescription"] as? String
-            Client.shared.optionsButtonsNames = serverMessage?["optionsButtonsNames"] as? [String]
+        }
+        
+        if (serverMessage?["updateSituation"] as? Bool) != nil{
+            //situationDelegate?.updateInfo()
         }
     }
 }

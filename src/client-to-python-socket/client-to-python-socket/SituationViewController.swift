@@ -6,7 +6,7 @@
 //  Copyright © 2020 Juan Suman. All rights reserved.
 //
 
-import SpriteKit
+import UIKit
 
 class SituationViewController: UIViewController {
 
@@ -14,27 +14,38 @@ class SituationViewController: UIViewController {
     var buttonWasSelected = false
     var selectedButton: Int?
     var confirmed = false
+    @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var confirmButton: UIButton!
+    @IBOutlet var youImageView: UIImageView!
+    @IBOutlet var partnerImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Client.shared.situationDelegate = self
+        
         //Atualiza label
+        descriptionLabel.text = Client.shared.situationDescription
+        
+        youImageView.image = UIImage(named: "\(Client.shared.potraitNumber)-idle")
+        
+        if Client.shared.potraitNumber == 1{
+            partnerImageView.image = UIImage(named: "2-idle")
+        }
+        else{
+            partnerImageView.image = UIImage(named: "1-idle")
+        }
+        
         //Atualiza botões
+        buttons[0].setTitle("INVESTIGAR", for: .normal)
+        buttons[1].setTitle("MATAR", for: .normal)
+        buttons[2].setTitle("AMEAÇAR", for: .normal)
+        buttons[3].setTitle("FUGIR", for: .normal)
         
         confirmButton.isHidden = true
         
-        /*
-        let scene = SituationScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-        scene.scaleMode = .aspectFill
-        
-        let skView = view as! SKView
-        
-        skView.presentScene(scene)
-        */
     }
     @IBAction func touchedButton(sender: UIButton) {
-        
         if buttonWasSelected && selectedButton == sender.tag && !confirmed{
             for button in buttons{
                 if button.tag != sender.tag{
@@ -43,7 +54,7 @@ class SituationViewController: UIViewController {
             }
             buttonWasSelected = false
             selectedButton = nil
-            buttons[sender.tag].setImage(UIImage(named: ""), for: .normal)
+            buttons[sender.tag].setImage(UIImage(named: "\(sender.tag)-idle"), for: .normal)
             confirmButton.isHidden = true
         }
         
@@ -55,12 +66,66 @@ class SituationViewController: UIViewController {
             }
             buttonWasSelected = true
             selectedButton = sender.tag
-            buttons[sender.tag].setImage(UIImage(named: ""), for: .normal)
+            buttons[sender.tag].setImage(UIImage(named: "\(sender.tag)-ready"), for: .normal)
             confirmButton.isHidden = false
         }
     }
     
+    
     @IBAction func confirm(_ sender: Any) {
-        //Ao clicar no de OK, uma mensagem é enviada para o servidor, ao isso acontecer, o ícone do jogador fica escuro (SituationDelegate para escurecer a do seu parceiro).
+        youImageView.image = UIImage(named: "\(Client.shared.potraitNumber)-ready")
+        Client.shared.updateClientSelectedOption(option: selectedButton!)
+        Client.shared.sendClientInfo()
+        Client.shared.updateClientSituationID()
+    }
+}
+
+extension SituationViewController: SituationDelegate{
+    func partnerConfirmed(){
+        if Client.shared.potraitNumber == 1{
+            partnerImageView.image = UIImage(named: "2-ready")
+        }
+        else{
+            partnerImageView.image = UIImage(named: "1-ready")
+        }
+    }
+    
+    func showResult(){
+        for button in buttons{
+            button.isHidden = true
+            if button.tag == Client.shared.result{
+                button.isHidden = false
+                button.setImage(UIImage(named: "\(button.tag)-idle"), for: .normal)
+            }
+        }
+        updateInfo()
+    }
+    func updateInfo(){
+        //Atualiza label
+        descriptionLabel.text = Client.shared.situationDescription
+        
+        youImageView.image = UIImage(named: "\(Client.shared.potraitNumber)-idle")
+        
+        if Client.shared.potraitNumber == 1{
+            partnerImageView.image = UIImage(named: "2-idle")
+        }
+        else{
+            partnerImageView.image = UIImage(named: "1-idle")
+        }
+        
+        for button in buttons{
+            button.isHidden = false
+            button.setImage(UIImage(named: "\(button.tag)-idle"), for: .normal)
+        }
+        
+        confirmButton.isHidden = true
+        
+        buttonWasSelected = false
+        selectedButton = nil
+        confirmed = false
+        
+    }
+    func endCase(){
+        performSegue(withIdentifier: "segueToEnding", sender: .none)
     }
 }

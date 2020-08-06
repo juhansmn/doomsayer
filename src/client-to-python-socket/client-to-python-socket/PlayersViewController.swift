@@ -12,6 +12,9 @@ class PlayersViewController: UIViewController {
     @IBOutlet var youLabel: UILabel!
     @IBOutlet var partnerLabel: UILabel!
     
+    @IBOutlet var youImageView: UIImageView!
+    @IBOutlet var partnerImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,10 +22,21 @@ class PlayersViewController: UIViewController {
         youLabel.textColor = special_color
         youLabel.text = "Você"
         youLabel.textAlignment = .center
+        print("AAAAAAAAAAAAA")
+        print(Client.shared.potraitNumber)
+        youImageView.image = UIImage(named: "\(String(Client.shared.potraitNumber!))-idle")
         
         partnerLabel.text = "Seu parceiro"
         partnerLabel.textColor = .white
         partnerLabel.textAlignment = .center
+        
+        if Client.shared.potraitNumber == 1{
+            partnerImageView.image = UIImage(named: "2-idle")
+        }
+        else{
+            partnerImageView.image = UIImage(named: "1-idle")
+        }
+
     
     }
     @IBAction func confirmButton(_ sender: Any) {

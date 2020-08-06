@@ -46,7 +46,7 @@
                         <outlet property="RCImageView" destination="hKQ-gh-b5O" id="jE7-kx-CoU"/>
                         <outlet property="RClabel" destination="4za-U9-z8k" id="7lU-OZ-Etg"/>
                         <outlet property="caseOneImageView" destination="GJb-OF-ixd" id="ZHF-ws-7zz"/>
-                        <segue destination="teT-9y-sCB" kind="presentation" identifier="SegueToStory" modalPresentationStyle="fullScreen" id="2d8-T4-1kX"/>
+                        <segue destination="teT-9y-sCB" kind="presentation" identifier="segueToStory" modalPresentationStyle="fullScreen" id="2d8-T4-1kX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIX-aQ-csk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -104,8 +104,8 @@
                     <connections>
                         <outlet property="caseInfoLabel" destination="TOJ-ww-2fY" id="qrH-3n-WUr"/>
                         <outlet property="caseTitleLabel" destination="odc-EC-bPv" id="Q7G-DV-SPP"/>
-                        <segue destination="sYn-Lm-HJW" kind="presentation" identifier="SegueToLoading" modalPresentationStyle="fullScreen" id="zvx-BV-JYP"/>
-                        <segue destination="EHX-rU-aP2" kind="presentation" identifier="SegueToCases" modalPresentationStyle="fullScreen" id="OpJ-bQ-mlc"/>
+                        <segue destination="sYn-Lm-HJW" kind="presentation" identifier="segueToLoading" modalPresentationStyle="fullScreen" id="zvx-BV-JYP"/>
+                        <segue destination="EHX-rU-aP2" kind="presentation" identifier="segueToCases" modalPresentationStyle="fullScreen" id="OpJ-bQ-mlc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AsQ-Lg-0uO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

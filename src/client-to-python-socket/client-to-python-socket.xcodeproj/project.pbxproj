@@ -30,7 +30,6 @@
 		0ACE7F0A249F693700E94ACF /* client_to_python_socketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7F09249F693700E94ACF /* client_to_python_socketUITests.swift */; };
 		0ACE7F18249F697C00E94ACF /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACE7F17249F697C00E94ACF /* Socket.swift */; };
 		0AFAF7A624D3420100643FBC /* SituationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFAF7A524D3420100643FBC /* SituationViewController.swift */; };
-		0AFAF7A824D3489D00643FBC /* SituationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFAF7A724D3489D00643FBC /* SituationScene.swift */; };
 		0AFAF7AA24D35DB200643FBC /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFAF7A924D35DB200643FBC /* Client.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +80,6 @@
 		0ACE7F0B249F693700E94ACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ACE7F17249F697C00E94ACF /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		0AFAF7A524D3420100643FBC /* SituationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SituationViewController.swift; sourceTree = "<group>"; };
-		0AFAF7A724D3489D00643FBC /* SituationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SituationScene.swift; sourceTree = "<group>"; };
 		0AFAF7A924D35DB200643FBC /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +157,6 @@
 				0A0A1E7C24D65549001BA5CE /* Situations.storyboard */,
 				0A0A1E8624D65BE4001BA5CE /* IntroSituationViewController.swift */,
 				0AFAF7A524D3420100643FBC /* SituationViewController.swift */,
-				0AFAF7A724D3489D00643FBC /* SituationScene.swift */,
 				0A0A1E8424D65BC7001BA5CE /* EndingCaseViewController.swift */,
 				0A0A1E9424D6B411001BA5CE /* fonts */,
 				0ACE7EF0249F693700E94ACF /* Assets.xcassets */,
@@ -336,7 +333,6 @@
 				0A0A1E8524D65BC7001BA5CE /* EndingCaseViewController.swift in Sources */,
 				0A0A1E7924D64BC2001BA5CE /* StoryViewController.swift in Sources */,
 				0ACE7EEA249F693500E94ACF /* SceneDelegate.swift in Sources */,
-				0AFAF7A824D3489D00643FBC /* SituationScene.swift in Sources */,
 				0A0A1E7F24D65B00001BA5CE /* LoadingCaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

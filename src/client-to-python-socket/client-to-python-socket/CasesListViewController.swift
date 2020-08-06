@@ -20,6 +20,7 @@ class CasesListViewController: UIViewController {
         let special_color = UIColor(red: 128/255, green: 0/255, blue: 255/255, alpha: 1.0)
         RClabel.textColor = special_color
         RClabel.text = String(Client.shared.RC ?? 0)
+        RClabel.textAlignment = .center
         
         if Int(RClabel.text!)! > 0{
             //Icone feliz
@@ -41,6 +42,6 @@ class CasesListViewController: UIViewController {
         
         Client.shared.sendClientInfo()
         
-        performSegue(withIdentifier: "segueToCaseStory", sender: self)
+        performSegue(withIdentifier: "segueToStory", sender: self)
     }
 }
