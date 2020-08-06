@@ -1,9 +1,14 @@
 {
-   "cases":[
+   "case":[
       {
-         "caseID": null,
+         "caseID":null,
          "caseTitle":null,
-         "caseDescription":null,
+         "caseDescription":null
+      }
+   ],
+   "situations":[
+      {
+         "Cuck":null
       }
    ]
 }

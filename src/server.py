@@ -23,6 +23,7 @@ DISCONNECTION_MESSAGE = "!EXIT"
 MAX_PLAYERS = 2
 start_game_counter = 1
 start_case_counter = 1
+vote_counter = 1
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
@@ -63,15 +64,22 @@ def handle_client(client):
 
 			if start_game_counter == 2:
 				server_message["startGame"] = True
+
+				server_message["players"][0]["portraitNumber"] = 1
+				server_message["players"][1]["portraitNumber"] = 2
+
 				for c in clients:
 					c.connection.sendall(json.dumps(server_message).encode(FORMAT))
 
-		if message_json['selected_case_id'] != null:
+		if message_json['selected_case_id'] == 0:
 			server_message["selectedCase"] = message_json['selected_case_id']
 			server_message["selectedCaseTitle"] = ""
 			server_message["selectedCaseDescription"] = ""
 
 			client.connection.send(json.dumps(server_message).encode(FORMAT))
+
+		#if message_json['selected_case_id'] != null:
+			#print("AAAAAAAAA")
 
 		if message_json['started_case'] == True:
 			global start_case_counter
@@ -112,7 +120,7 @@ def send_playerConnection(client, connected):
 			player_connection["serverStatusMessage"] = "Servidor cheio (máximo de 2 jogadores)"
 			client.connection.send(json.dumps(player_connection).encode(FORMAT))
 
-def loadJSONs():
+def loadJSON():
 	global server_message
 
 	with open("serverMessage.json", encoding='utf-8') as file:
@@ -121,7 +129,7 @@ def loadJSONs():
 #direciona cada cliente conectado
 def start():
 	print(f"[SERVER] {SERVER} iniciou!")
-	loadJSONs()
+	loadJSON()
 	#possibilita conexões
 	server.listen()
 

@@ -1,21 +1,27 @@
 {
    "RC":0,
    "situationDescription":null,
-   "optionsButtonsNames":null,
+   "situationID":null,
    "startGame":null,
    "startCase":null,
+   "partnerConfirmed":null,
+   "result":null,
+   "updateSituation":null,
+   "endCase":null,
    "players":[
       {
-         "selectedCase":null,
-         "selectedCaseDescription":null,
-         "selectedCaseTitle":null,
-         "selectedOption":null
+         "selectedCase":0,
+         "selectedCaseDescription":"",
+         "selectedCaseTitle":"",
+         "selectedOption":0,
+         "portraitNumber":0
       },
       {
-         "selectedCase":null,
-         "selectedCaseDescription":null,
-         "selectedCaseTitle":null,
-         "selectedOption":null
+         "selectedCase":0,
+         "selectedCaseDescription":"",
+         "selectedCaseTitle":"",
+         "selectedOption":0,
+         "portraitNumber":0
       }
    ]
 }
