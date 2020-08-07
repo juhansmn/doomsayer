@@ -27,7 +27,7 @@ class SituationViewController: UIViewController {
         //Atualiza label
         descriptionLabel.text = Client.shared.situationDescription
         
-        youImageView.image = UIImage(named: "\(Client.shared.potraitNumber)-idle")
+        youImageView.image = UIImage(named: "\(String(Client.shared.potraitNumber!))-idle")
         
         if Client.shared.potraitNumber == 1{
             partnerImageView.image = UIImage(named: "2-idle")
@@ -54,7 +54,7 @@ class SituationViewController: UIViewController {
             }
             buttonWasSelected = false
             selectedButton = nil
-            buttons[sender.tag].setImage(UIImage(named: "\(sender.tag)-idle"), for: .normal)
+            buttons[sender.tag].setImage(UIImage(named: "button\(String(sender.tag))-idle"), for: .normal)
             confirmButton.isHidden = true
         }
         
@@ -66,14 +66,15 @@ class SituationViewController: UIViewController {
             }
             buttonWasSelected = true
             selectedButton = sender.tag
-            buttons[sender.tag].setImage(UIImage(named: "\(sender.tag)-ready"), for: .normal)
+            buttons[sender.tag].setImage(UIImage(named: "button\(String(sender.tag))-ready"), for: .normal)
+            print(sender.tag)
             confirmButton.isHidden = false
         }
     }
     
     
     @IBAction func confirm(_ sender: Any) {
-        youImageView.image = UIImage(named: "\(Client.shared.potraitNumber)-ready")
+        youImageView.image = UIImage(named: "\(String(Client.shared.potraitNumber!))-ready")
         Client.shared.updateClientSelectedOption(option: selectedButton!)
         Client.shared.sendClientInfo()
         Client.shared.updateClientSituationID()
@@ -95,7 +96,7 @@ extension SituationViewController: SituationDelegate{
             button.isHidden = true
             if button.tag == Client.shared.result{
                 button.isHidden = false
-                button.setImage(UIImage(named: "\(button.tag)-idle"), for: .normal)
+                button.setImage(UIImage(named: "\(String(button.tag))-idle"), for: .normal)
             }
         }
         updateInfo()
@@ -104,7 +105,7 @@ extension SituationViewController: SituationDelegate{
         //Atualiza label
         descriptionLabel.text = Client.shared.situationDescription
         
-        youImageView.image = UIImage(named: "\(Client.shared.potraitNumber)-idle")
+        youImageView.image = UIImage(named: "\(String(Client.shared.potraitNumber!))-idle")
         
         if Client.shared.potraitNumber == 1{
             partnerImageView.image = UIImage(named: "2-idle")
@@ -115,7 +116,7 @@ extension SituationViewController: SituationDelegate{
         
         for button in buttons{
             button.isHidden = false
-            button.setImage(UIImage(named: "\(button.tag)-idle"), for: .normal)
+            button.setImage(UIImage(named: "\(String(button.tag))-idle"), for: .normal)
         }
         
         confirmButton.isHidden = true

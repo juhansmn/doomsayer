@@ -19,16 +19,17 @@ class CasesListViewController: UIViewController {
         
         let special_color = UIColor(red: 128/255, green: 0/255, blue: 255/255, alpha: 1.0)
         RClabel.textColor = special_color
-        RClabel.text = String(Client.shared.RC ?? 0)
         RClabel.textAlignment = .center
         
-        if Int(RClabel.text!)! > 0{
+        if Client.shared.RC! > 0{
             //Icone feliz
             RCImageView.image = UIImage(named: "icon-small-happy")
+            RClabel.text = "Bom trabalho!"
         }
         else{
             //Icone triste
             RCImageView.image = UIImage(named: "icon-small-sad")
+            RClabel.text = "Faça sua parte!"
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
@@ -38,7 +39,7 @@ class CasesListViewController: UIViewController {
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
-        Client.shared.updateClientSelectedCaseID(caseID: 0)
+        Client.shared.updateClientSelectedCaseID(caseID: 1)
         
         Client.shared.sendClientInfo()
         

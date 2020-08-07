@@ -22,8 +22,6 @@ class PlayersViewController: UIViewController {
         youLabel.textColor = special_color
         youLabel.text = "Você"
         youLabel.textAlignment = .center
-        print("AAAAAAAAAAAAA")
-        print(Client.shared.potraitNumber)
         youImageView.image = UIImage(named: "\(String(Client.shared.potraitNumber!))-idle")
         
         partnerLabel.text = "Seu parceiro"
