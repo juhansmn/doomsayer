@@ -28,6 +28,7 @@ vote_counter = 1
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
 server_message = None
+cases_json = None
 
 #lista de clientes ativos
 clients = []
@@ -56,7 +57,7 @@ def handle_client(client):
 		message = client.connection.recv(message_length)
 		message_json = json.loads(message)
 
-		print(f"[{client.address[0]}] {message_json['started_game']}")
+		print(f"[{client.address[0]}] {message_json}")
 
 		if message_json['started_game'] == True:
 			global start_game_counter
@@ -71,15 +72,12 @@ def handle_client(client):
 				for c in clients:
 					c.connection.sendall(json.dumps(server_message).encode(FORMAT))
 
-		if message_json['selected_case_id'] == 0:
-			server_message["selectedCase"] = message_json['selected_case_id']
-			server_message["selectedCaseTitle"] = ""
-			server_message["selectedCaseDescription"] = ""
+		if message_json['selected_case_id'] == 1:
+			server_message["players"][message_json['player_id']]["selectedCase"] = message_json['selected_case_id']
+			server_message["players"][message_json['player_id']]["selectedCaseTitle"] = cases_json["case"][0]["caseTitle"]
+			server_message["players"][message_json['player_id']]["selectedCaseDescription"] = str(cases_json["case"][0]["caseDescription"])
 
 			client.connection.send(json.dumps(server_message).encode(FORMAT))
-
-		#if message_json['selected_case_id'] != null:
-			#print("AAAAAAAAA")
 
 		if message_json['started_case'] == True:
 			global start_case_counter
@@ -120,8 +118,12 @@ def send_playerConnection(client, connected):
 			player_connection["serverStatusMessage"] = "Servidor cheio (máximo de 2 jogadores)"
 			client.connection.send(json.dumps(player_connection).encode(FORMAT))
 
-def loadJSON():
+def loadJSONs():
 	global server_message
+	global cases_json
+
+	with open("casesInfo.json", encoding='utf-8') as file:
+		cases_json = json.loads(file.read())
 
 	with open("serverMessage.json", encoding='utf-8') as file:
 		server_message = json.loads(file.read())
@@ -129,7 +131,7 @@ def loadJSON():
 #direciona cada cliente conectado
 def start():
 	print(f"[SERVER] {SERVER} iniciou!")
-	loadJSON()
+	loadJSONs()
 	#possibilita conexões
 	server.listen()
 
