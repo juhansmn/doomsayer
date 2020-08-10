@@ -1,14 +1,34 @@
 {
    "case":[
       {
-         "caseID":0,
          "caseTitle":"Mais um dia lidando com ESPECIAIS",
-         "caseDescription":"Um homem velho ESPECIAL (Teste de QI feito) sequestrou uma menina (RACHAEL LEWIS). Ninguém na polícia resolveu o caso ainda. Faça sua parte o mais rápido possível, doomsayer!"
-      }
-   ],
-   "situations":[
-      {
-         "Cuck":null
+         "caseDescription":"Um homem velho ESPECIAL (Teste de QI feito) sequestrou uma menina (RACHAEL LEWIS). Ninguém na polícia resolveu o caso ainda. Faça sua parte o mais rápido possível, doomsayer!",
+         "situations":[
+            {
+               "description":"Vocês avistam um prédio."
+            },
+            {
+               "description":"Vocês estão no apartamento do alvo."
+            },
+            {
+               "description":"Vocês investigaram."
+            },
+            {
+               "description":"Vocês mataram."
+            },
+            {
+               "description":"Vocês ameaçaram."
+            },
+            {
+               "description":"Vocês fugiram."
+            },
+            {
+               "description":"Vocês ganharam RC."
+            },
+            {
+               "description":"Vocês perderam RC."
+            }
+         ]
       }
    ]
 }
