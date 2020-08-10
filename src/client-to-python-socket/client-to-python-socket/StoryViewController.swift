@@ -20,7 +20,7 @@ class StoryViewController: UIViewController {
         titleLabel.textColor = special_color
         titleLabel.text = "20XX. Azimov."
         
-        textLabel.text = "Essa é uma cidade que não deveria existir, onde os cidadãos são envoltos numa realidade de violência constante num lugar famoso apenas pela sua quantidade de lixo, corporativismo e caos urbano. Você e seu parceiro são cidadãos comuns levados, pela necessidade ou ambições particulares, a se tornarem Doomsayers, cidadãos que escolhem se envolver nessa ultra violência recompensados com dinheiro e pontos como bom cidadão para \"garantir paz\" para a Sociedade. Faça sua parte."
+        textLabel.text = "Essa é uma cidade que não deveria existir, onde os cidadãos estão presos numa realidade de violência e caos urbano. Você e seu parceiro são cidadãos comuns levados, pela necessidade ou ambições particulares, a se tornarem Doomsayers, cidadãos que escolhem se envolver na ultra violência recompensados pontos como bom cidadão para \"garantir paz\" para a Sociedade. Numa sociedade vigilante, todos os alvos são conhecidos. Faça sua parte."
         
     }
     @IBAction func confirmButton(_ sender: Any) {

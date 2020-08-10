@@ -15,7 +15,7 @@ class IntroSituationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        introLabel.text = Client.shared.situationDescription
+        introLabel.text = Client.shared.situationsDescription![0]
         
     }
     

@@ -14,7 +14,6 @@ class LoadingCaseViewController: UIViewController {
         super.viewDidLoad()
 
         Client.shared.startCaseDelegate = self
-        Client.shared.updateClientStartedCase()
         Client.shared.sendClientInfo()
         
     }

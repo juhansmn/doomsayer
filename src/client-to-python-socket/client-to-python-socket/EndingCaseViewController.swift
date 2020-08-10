@@ -14,7 +14,9 @@ class EndingCaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        endingLabel.text = Client.shared.situationDescription
+        Client.shared.resetClient()
+        
+        endingLabel.text = Client.shared.situationsDescription![Client.shared.selectedCaseEndingID!]
 
     }
     @IBAction func transitionToCaseList(_ sender: Any) {

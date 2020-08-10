@@ -25,6 +25,7 @@ class CasesStoryViewController: UIViewController {
     }
     
     @IBAction func confirmCase(_ sender: Any) {
+        Client.shared.updateClientStartedCase()
         performSegue(withIdentifier: "segueToLoading", sender: self)
     }
 }

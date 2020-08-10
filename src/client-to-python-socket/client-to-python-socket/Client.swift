@@ -51,16 +51,17 @@ class Client {
     var situationDelegate: SituationDelegate?
     
     //Client Message
-    var ClientInfo = ClientMessage(started_game: false, started_case: false, player_id: 1, selected_option: 0, selected_case_id: 0, situation_id: 0)
+    var ClientInfo = ClientMessage(started_game: false, started_case: false, player_id: 1, selected_option: 5, selected_case_id: 999, situation_id: 0)
     
     //Server Message
     var playerID: Int?
     var RC: Int?
     var selectedOption: Int?
     var selectedCase: Int?
-    var situationDescription: String?
+    var situationsDescription: [String]?
     var selectedCaseDescription: String?
     var selectedCaseTitle: String?
+    var selectedCaseEndingID: Int?
     var situationID: Int?
     var isConnected: Bool?
     var startGame: Bool?
@@ -68,6 +69,7 @@ class Client {
     var serverStatusMessage: String?
     var potraitNumber: Int?
     var result: Int?
+    var endCase: Bool?
     
     func connectToServer(){
         Socket.shared.delegate = Client.shared
@@ -105,6 +107,13 @@ class Client {
         ClientInfo.situation_id += 1
     }
     
+    func resetClient(){
+        ClientInfo.situation_id = 0
+        ClientInfo.selected_case_id = 999
+        ClientInfo.selected_option = 5
+        ClientInfo.started_case = false
+    }
+    
     func updateAttributes(){
         //Checa se a mensagem é a de conexão
         if let isConnected = serverMessage?["isConnected"] as? Bool{
@@ -127,6 +136,7 @@ class Client {
         
         if let startCase = serverMessage?["startCase"] as? Bool{
             Client.shared.startCase = startCase
+            
             startCaseDelegate?.transitionToCase()
         }
         
@@ -136,17 +146,18 @@ class Client {
         
         if let result = serverMessage?["result"] as? Int{
             Client.shared.result = result
+            Client.shared.situationID = serverMessage?["situationID"] as? Int
+            Client.shared.selectedCaseEndingID = serverMessage?["selectedCaseEndingID"] as? Int
             situationDelegate?.showResult()
             Client.shared.result = nil
         }
         
-        if (serverMessage?["endCase"] as? Bool) != nil{
-            situationDelegate?.endCase()
+        if let endCase = serverMessage?["endCase"] as? Bool{
+            Client.shared.endCase = endCase
         }
         
         //Se o jogador tiver conseguido se conectar (por espaço e disponibilidade do servidor)
         if Client.shared.isConnected == true{
-
             if let sv = serverMessage?["players"] as? [[String: AnyObject]]{
                 if let _ = sv[Client.shared.playerID!]["selectedCase"] as? Int{
                     Client.shared.selectedCase = sv[Client.shared.playerID!]["selectedCase"] as? Int
@@ -163,12 +174,8 @@ class Client {
             }
             
             Client.shared.RC = serverMessage?["RC"] as? Int
-            Client.shared.situationID = serverMessage?["situationID"] as? Int
-            Client.shared.situationDescription = serverMessage?["situationDescription"] as? String
-        }
-        
-        if (serverMessage?["updateSituation"] as? Bool) != nil{
-            //situationDelegate?.updateInfo()
+            Client.shared.situationsDescription = serverMessage?["situationsDescription"] as? [String]
+
         }
     }
 }

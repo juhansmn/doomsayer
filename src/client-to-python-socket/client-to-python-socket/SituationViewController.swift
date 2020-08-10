@@ -12,8 +12,10 @@ class SituationViewController: UIViewController {
 
     @IBOutlet var buttons : [UIButton]!
     var buttonWasSelected = false
+    var resultWasShown = false
     var selectedButton: Int?
     var confirmed = false
+    var confirmedResult = false
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var confirmButton: UIButton!
     @IBOutlet var youImageView: UIImageView!
@@ -25,7 +27,7 @@ class SituationViewController: UIViewController {
         Client.shared.situationDelegate = self
         
         //Atualiza label
-        descriptionLabel.text = Client.shared.situationDescription
+        descriptionLabel.text = Client.shared.situationsDescription![1]
         
         youImageView.image = UIImage(named: "\(String(Client.shared.potraitNumber!))-idle")
         
@@ -54,7 +56,7 @@ class SituationViewController: UIViewController {
             }
             buttonWasSelected = false
             selectedButton = nil
-            buttons[sender.tag].setImage(UIImage(named: "button\(String(sender.tag))-idle"), for: .normal)
+            buttons[sender.tag].setBackgroundImage(UIImage(named: "nselecionado-base"), for: .normal)
             confirmButton.isHidden = true
         }
         
@@ -66,18 +68,23 @@ class SituationViewController: UIViewController {
             }
             buttonWasSelected = true
             selectedButton = sender.tag
-            buttons[sender.tag].setImage(UIImage(named: "button\(String(sender.tag))-ready"), for: .normal)
-            print(sender.tag)
+            buttons[sender.tag].setBackgroundImage(UIImage(named: "selecionado-base"), for: .normal)
             confirmButton.isHidden = false
         }
     }
     
     
     @IBAction func confirm(_ sender: Any) {
-        youImageView.image = UIImage(named: "\(String(Client.shared.potraitNumber!))-ready")
-        Client.shared.updateClientSelectedOption(option: selectedButton!)
-        Client.shared.sendClientInfo()
-        Client.shared.updateClientSituationID()
+        if confirmed == false{
+            youImageView.image = UIImage(named: "\(String(Client.shared.potraitNumber!))-ready")
+            Client.shared.updateClientSelectedOption(option: selectedButton!)
+            Client.shared.sendClientInfo()
+            Client.shared.updateClientSituationID()
+            confirmed = true
+        }
+        else if resultWasShown{
+            updateInfo()
+        }
     }
 }
 
@@ -96,14 +103,19 @@ extension SituationViewController: SituationDelegate{
             button.isHidden = true
             if button.tag == Client.shared.result{
                 button.isHidden = false
-                button.setImage(UIImage(named: "\(String(button.tag))-idle"), for: .normal)
+                button.setBackgroundImage(UIImage(named: "selecionado-base"), for: .normal)
+                resultWasShown = true
+                descriptionLabel.text = Client.shared.situationsDescription![Client.shared.situationID!]
             }
         }
-        updateInfo()
     }
+    
     func updateInfo(){
-        //Atualiza label
-        descriptionLabel.text = Client.shared.situationDescription
+        if Client.shared.endCase!{
+            Client.shared.situationDelegate?.endCase()
+        }
+        
+        descriptionLabel.text = Client.shared.situationsDescription![Client.shared.situationID!]
         
         youImageView.image = UIImage(named: "\(String(Client.shared.potraitNumber!))-idle")
         
@@ -116,7 +128,7 @@ extension SituationViewController: SituationDelegate{
         
         for button in buttons{
             button.isHidden = false
-            button.setImage(UIImage(named: "\(String(button.tag))-idle"), for: .normal)
+            button.setBackgroundImage(UIImage(named: "nselecionado-base"), for: .normal)
         }
         
         confirmButton.isHidden = true
@@ -124,8 +136,10 @@ extension SituationViewController: SituationDelegate{
         buttonWasSelected = false
         selectedButton = nil
         confirmed = false
-        
+        confirmedResult = false
+        resultWasShown = false
     }
+    
     func endCase(){
         performSegue(withIdentifier: "segueToEnding", sender: .none)
     }
