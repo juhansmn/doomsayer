@@ -1,12 +1,12 @@
 {
    "RC":0,
-   "situationDescription":null,
+   "situationsDescription":[],
    "situationID":null,
    "startGame":null,
    "startCase":null,
    "partnerConfirmed":null,
    "result":null,
-   "updateSituation":null,
+   "selectedCaseEndingID":null,
    "endCase":null,
    "players":[
       {

@@ -3,6 +3,7 @@ import threading
 import json
 import sys
 import select
+import random
 
 class Client:
 	connection = None
@@ -24,6 +25,7 @@ MAX_PLAYERS = 2
 start_game_counter = 1
 start_case_counter = 1
 vote_counter = 1
+voted_options = []
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
@@ -72,13 +74,6 @@ def handle_client(client):
 				for c in clients:
 					c.connection.sendall(json.dumps(server_message).encode(FORMAT))
 
-		if message_json['selected_case_id'] == 1:
-			server_message["players"][message_json['player_id']]["selectedCase"] = message_json['selected_case_id']
-			server_message["players"][message_json['player_id']]["selectedCaseTitle"] = cases_json["case"][0]["caseTitle"]
-			server_message["players"][message_json['player_id']]["selectedCaseDescription"] = str(cases_json["case"][0]["caseDescription"])
-
-			client.connection.send(json.dumps(server_message).encode(FORMAT))
-
 		if message_json['started_case'] == True:
 			global start_case_counter
 			start_case_counter += 1
@@ -87,6 +82,62 @@ def handle_client(client):
 				server_message["startCase"] = True
 				for c in clients:
 					c.connection.sendall(json.dumps(server_message).encode(FORMAT))
+				start_case_counter = 0
+
+		if message_json['selected_case_id'] == 0 and message_json['started_case'] == False:
+			server_message["players"][message_json['player_id']]["selectedCase"] = message_json['selected_case_id']
+			server_message["players"][message_json['player_id']]["selectedCaseTitle"] = cases_json["case"][0]["caseTitle"]
+			server_message["players"][message_json['player_id']]["selectedCaseDescription"] = str(cases_json["case"][0]["caseDescription"])
+
+			for i in range(8):
+				server_message["situationsDescription"].append(str(cases_json["case"][0]["situations"][i]["description"]))
+
+			#dependo da opção, retornar o final
+			#server_message["selectedCaseEndingID"] = 6
+			#server_message["selectedCaseEndingID"] = 7
+
+			client.connection.send(json.dumps(server_message).encode(FORMAT))
+
+		if message_json['selected_case_id'] == 0 and message_json['started_case'] == True and message_json['selected_option'] != 5:
+			global vote_counter
+			global voted_options
+
+			vote_counter += 1
+			voted_options.append(message_json['selected_option'])
+
+			if vote_counter == 2:
+				server_message["partnerConfirmed"] = True
+				server_message["endCase"] = True
+
+				voted_options.append(1)
+
+				if voted_options[0] == voted_options[1]:
+					server_message["result"] = voted_options[0]
+				else:
+					server_message["result"] = voted_options[random.randint(0,1)]
+
+				if server_message["result"] == 0:
+					server_message["situationID"] = 2
+					server_message["selectedCaseEndingID"] = 6
+
+				if server_message["result"] == 1:
+					server_message["situationID"] = 3
+					server_message["selectedCaseEndingID"] = 6
+
+				if server_message["result"] == 2:
+					server_message["situationID"] = 4
+					server_message["selectedCaseEndingID"] = 6
+
+				if server_message["result"] == 3:
+					server_message["situationID"] = 5
+					server_message["selectedCaseEndingID"] = 7
+
+				for c in clients:
+					c.connection.sendall(json.dumps(server_message).encode(FORMAT))
+
+				server_message["partnerConfirmed"] = False
+				server_message["result"] = 5
+				vote_counter = 1
 
 	disconnect_client(client)
 
