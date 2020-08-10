@@ -22,9 +22,9 @@ HEADER = 64
 FORMAT = 'utf-8'
 DISCONNECTION_MESSAGE = "!EXIT"
 MAX_PLAYERS = 2
-start_game_counter = 1
-start_case_counter = 1
-vote_counter = 1
+start_game_counter = 0
+start_case_counter = 0
+vote_counter = 0
 voted_options = []
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -82,6 +82,7 @@ def handle_client(client):
 				server_message["startCase"] = True
 				for c in clients:
 					c.connection.sendall(json.dumps(server_message).encode(FORMAT))
+
 				start_case_counter = 0
 
 		if message_json['selected_case_id'] == 0 and message_json['started_case'] == False:
@@ -91,10 +92,6 @@ def handle_client(client):
 
 			for i in range(8):
 				server_message["situationsDescription"].append(str(cases_json["case"][0]["situations"][i]["description"]))
-
-			#dependo da opção, retornar o final
-			#server_message["selectedCaseEndingID"] = 6
-			#server_message["selectedCaseEndingID"] = 7
 
 			client.connection.send(json.dumps(server_message).encode(FORMAT))
 
@@ -108,8 +105,6 @@ def handle_client(client):
 			if vote_counter == 2:
 				server_message["partnerConfirmed"] = True
 				server_message["endCase"] = True
-
-				voted_options.append(1)
 
 				if voted_options[0] == voted_options[1]:
 					server_message["result"] = voted_options[0]
